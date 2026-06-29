@@ -239,6 +239,15 @@ p.lead {
     transform: rotate(45deg);
 }
 
+/* RTL Toggle Anim */
+.rtl-toggle i, .rtl-toggle-mob i {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rtl-toggle:hover i, .rtl-toggle-mob:hover i {
+    transform: scaleX(-1);
+}
+
 /* Buttons */
 .btn-container {
     display: flex;

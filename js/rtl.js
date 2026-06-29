@@ -20,10 +20,13 @@ function setRTL(isRTL) {
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
     localStorage.setItem('vortex-rtl', isRTL ? 'true' : 'false');
 
-    // Update all RTL buttons text
+    // Update all RTL buttons
     const rtlToggles = document.querySelectorAll('.rtl-toggle, .rtl-toggle-mob');
     rtlToggles.forEach(toggle => {
-        toggle.textContent = isRTL ? 'LTR' : 'RTL';
+        const textSpan = toggle.querySelector('.rtl-text');
+        if (textSpan) {
+            textSpan.textContent = isRTL ? 'LTR' : 'RTL';
+        }
         toggle.setAttribute('aria-label', isRTL ? 'Switch to Left to Right Layout' : 'Switch to Right to Left Layout');
     });
 }
