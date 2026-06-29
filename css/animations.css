@@ -151,6 +151,17 @@
     color: var(--accent);
 }
 
+.preloader-logo .logo-icon {
+    font-size: 2.2rem;
+    margin-right: 15px;
+    animation: preloader-spin 2.5s infinite linear;
+}
+
+@keyframes preloader-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .preloader-bar-bg {
     width: 250px;
     height: 1px;

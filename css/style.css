@@ -154,6 +154,18 @@ p.lead {
     align-items: center;
 }
 
+.logo-icon {
+    margin-right: 12px;
+    color: var(--accent);
+    font-size: 1.35rem;
+    display: inline-block;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.logo:hover .logo-icon {
+    transform: rotate(360deg);
+}
+
 .logo span {
     color: var(--accent);
 }

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.createElement('div');
     preloader.className = 'preloader';
     preloader.innerHTML = `
-        <div class="preloader-logo">VORTEX<span>.</span></div>
+        <div class="preloader-logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></div>
         <div class="preloader-bar-bg">
             <div class="preloader-bar-fill"></div>
         </div>
