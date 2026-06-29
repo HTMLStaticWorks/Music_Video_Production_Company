@@ -36,6 +36,17 @@ console.log('RTL Engine: Loaded');
         document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
         localStorage.setItem('vortex-rtl', isRTL ? 'true' : 'false');
         updateButtons(isRTL);
+        
+        // Dispatch directionchanged event
+        window.dispatchEvent(new CustomEvent('directionchanged', { detail: { isRTL: isRTL } }));
+
+        // Dispatch resize event and refresh GSAP ScrollTrigger to recalculate layout offsets
+        setTimeout(() => {
+            window.dispatchEvent(new Event('resize'));
+            if (window.ScrollTrigger) {
+                window.ScrollTrigger.refresh();
+            }
+        }, 150);
     }
 
     function updateButtons(isRTL) {
