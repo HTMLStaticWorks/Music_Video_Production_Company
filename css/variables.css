@@ -1,0 +1,75 @@
+/* CSS Variables - VORTEX CINEMA */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap');
+
+:root {
+    /* Fonts */
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Theme-independent colors */
+    --accent: #E6B930; /* Warm Gold */
+    --accent-rgb: 230, 185, 48;
+    --accent-hover: #C59B1D;
+    
+    /* Dark Theme (Default) */
+    --bg: #0A0A0A;
+    --bg-rgb: 10, 10, 10;
+    --bg-card: #121212;
+    --bg-card-rgb: 18, 18, 18;
+    --text: #F5F5F5;
+    --text-rgb: 245, 245, 245;
+    --text-muted: #8E8E8E;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(10, 10, 10, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    --spacing-xxl: 12rem;
+    
+    /* Header/Nav sizing */
+    --nav-height: 80px;
+    
+    /* Transitions */
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.2s ease;
+    --transition-slow: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* RTL base adjustments */
+    --direction: ltr;
+    --align-start: left;
+    --align-end: right;
+    --transform-rtl: 1;
+    --flex-direction-row: row;
+}
+
+[data-theme="light"] {
+    /* Light Theme */
+    --bg: #F8F8F6;
+    --bg-rgb: 248, 248, 246;
+    --bg-card: #FFFFFF;
+    --bg-card-rgb: 255, 255, 255;
+    --text: #121212;
+    --text-rgb: 18, 18, 18;
+    --text-muted: #666666;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.2);
+    --glass-bg: rgba(248, 248, 246, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --accent: #B8860B; /* Darker Gold for visibility */
+    --accent-hover: #996515;
+}
+
+[data-rtl="true"] {
+    --direction: rtl;
+    --align-start: right;
+    --align-end: left;
+    --transform-rtl: -1;
+    --flex-direction-row: row-reverse;
+}

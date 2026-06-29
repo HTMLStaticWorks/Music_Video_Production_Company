@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX CINEMA | Studio Booking Hub</title>
+    <meta name="description" content="Get in touch with Vortex Cinema's production office. Lock in project budgets, shooting dates, and start pre-production treatments.">
+    
+    <!-- Premium Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Modules -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VORTEX<span>.</span></a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home2.html">Home 2</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-menu-controls">
+                        <button class="control-btn theme-toggle-mob" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i> Theme
+                        </button>
+                        <button class="control-btn rtl-toggle-mob" aria-label="Toggle RTL Direction">RTL</button>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="controls-wrapper">
+                <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle" aria-label="Toggle RTL Direction">RTL</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Booking Intro Section -->
+        <section class="container" style="padding-top: calc(var(--nav-height) + var(--spacing-lg)); padding-bottom: var(--spacing-md);">
+            <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Initiate Session</span>
+            <h1 class="display-medium" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Book Vortex</h1>
+            <p class="lead">Connect with our production office in London. Provide details on track length, target timeline, record label involvement, and design budgets to begin script treatment drafting.</p>
+        </section>
+
+        <!-- Booking Form & Info Section -->
+        <section class="container" style="padding-top: 0; padding-bottom: var(--spacing-xl);">
+            <div class="contact-grid">
+                
+                <!-- Form Side -->
+                <div class="form-wrapper">
+                    <form id="booking-form" novalidate>
+                        
+                        <!-- Name & Email Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" required>
+                                <label for="contact-name">Full Name *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact-email" required>
+                                <label for="contact-email">Email Address *</label>
+                            </div>
+                        </div>
+
+                        <!-- Phone & Label Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="contact-phone" required>
+                                <label for="contact-phone">Phone Number *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="contact-artist" required>
+                                <label for="contact-artist">Artist / Label *</label>
+                            </div>
+                        </div>
+
+                        <!-- Project Type & Budget Row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="contact-type" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="music-video">Music Video</option>
+                                    <option value="epk">EPK Document</option>
+                                    <option value="live-session">Live Music Session</option>
+                                    <option value="other">Other Production</option>
+                                </select>
+                                <label for="contact-type">Project Type *</label>
+                            </div>
+                            <div class="form-group">
+                                <select id="contact-budget" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="low">$10k - $25k</option>
+                                    <option value="med">$25k - $50k</option>
+                                    <option value="high">$50k - $100k</option>
+                                    <option value="premium">$100k+</option>
+                                </select>
+                                <label for="contact-budget">Project Budget *</label>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Row -->
+                        <div class="form-group">
+                            <input type="text" id="contact-timeline" required>
+                            <label for="contact-timeline">Target Timeline (e.g. August 2026) *</label>
+                        </div>
+
+                        <!-- Message Row -->
+                        <div class="form-group">
+                            <textarea id="contact-message" maxlength="1000" rows="6" required></textarea>
+                            <label for="contact-message">Synopsis / Notes *</label>
+                            <div class="char-counter" id="char-counter">0 / 1000</div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-magnetic" style="margin-top: var(--spacing-sm);">Submit Proposal</button>
+                    </form>
+
+                    <!-- Success State draw block -->
+                    <div class="form-success-state" id="form-success-state">
+                        <div class="success-svg-wrapper">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" style="width: 100%; height: 100%;">
+                                <circle class="success-circle" cx="65.1" cy="65.1" r="62.1"/>
+                                <polyline class="success-check" points="100.2,40.2 51.5,88.8 29.8,67.1"/>
+                            </svg>
+                        </div>
+                        <h2 class="display-small" style="color: var(--accent);">Proposal Received</h2>
+                        <p style="margin: var(--spacing-xs) auto var(--spacing-sm); max-width: 45ch;">Thank you. Your project specifications have been logged. A creative treatment director will review your audio track and reach out within 24 hours.</p>
+                        <a href="index.html" class="btn-secondary btn-magnetic">Back to Home</a>
+                    </div>
+                </div>
+
+                <!-- Studio Information Side -->
+                <div class="studio-info-side">
+                    <h2 class="display-small" style="margin-bottom: var(--spacing-md);">Studio Office</h2>
+                    
+                    <div class="info-item">
+                        <span class="info-label">Address</span>
+                        <span class="info-value">12 Cinematic Avenue, London, EC1A 1BB</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Email Contacts</span>
+                        <span class="info-value">bookings@vortexcinema.com</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Phone Hotline</span>
+                        <span class="info-value">+44 (0) 20 7946 0958</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Business Hours</span>
+                        <span class="info-value">Mon - Fri, 09:00 - 18:00 GMT</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Response Window</span>
+                        <span class="info-value">Within 24 Hours for Labels &amp; A&amp;R</span>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="info-map-placeholder">
+                        <span><i class="fas fa-map-marked-alt" style="margin-right: 8px;"></i> Interactive Studio Map Grid</span>
+                    </div>
+                </div>
+
+        <!-- Studio Office Gallery (3 Images) -->
+        <section class="container asymmetric-sec" style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
+            <div style="margin-bottom: var(--spacing-lg);">
+                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Office Atmosphere</span>
+                <h2 class="display-medium" style="margin-top: 10px;">Our Workspace</h2>
+            </div>
+            <div class="grid-3" style="gap: var(--spacing-md);">
+                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                    <img class="skeleton" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600" loading="lazy" alt="Mixing Console" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                    <img class="skeleton" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" loading="lazy" alt="Drums Room" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                    <img class="skeleton" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600" loading="lazy" alt="Production Slate" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container footer-top">
+            <div class="footer-logo-side">
+                <a href="index.html" class="logo">VORTEX<span>.</span></a>
+                <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="portfolio.html">Music Videos</a></li>
+                    <li><a href="portfolio.html">EPK Productions</a></li>
+                    <li><a href="portfolio.html">Live Sessions</a></li>
+                    <li><a href="about.html">Creative Strategy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Studio</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Team Spec</a></li>
+                    <li><a href="portfolio.html">Works Archive</a></li>
+                    <li><a href="contact.html">Contact Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter-side">
+                <h4 class="footer-links-title">Newsletter</h4>
+                <p>Receive exclusive insights from upcoming cinematic projects.</p>
+                <form id="footer-newsletter">
+                    <input type="email" placeholder="Your email address" required aria-label="Newsletter Email Address">
+                    <button type="submit" aria-label="Subscribe to newsletter"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
+                <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Smooth Scroll Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom Orchestration Engines -->
+    <script src="js/theme.js"></script>
+    <script src="js/rtl.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

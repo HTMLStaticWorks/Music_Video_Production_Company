@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX CINEMA | Award-Winning Music Video Production Studio</title>
+    <meta name="description" content="VORTEX is a premium, cinematic creative agency specializing in world-class music videos, EPK productions, and live sessions for leading global artists.">
+    
+    <!-- Premium Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Modules -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VORTEX<span>.</span></a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home2.html">Home 2</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-menu-controls">
+                        <button class="control-btn theme-toggle-mob" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i> Theme
+                        </button>
+                        <button class="control-btn rtl-toggle-mob" aria-label="Toggle RTL Direction">RTL</button>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="controls-wrapper">
+                <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle" aria-label="Toggle RTL Direction">RTL</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero-sec play-target" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop');">
+            <video class="hero-video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop">
+                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0c008779857d1013e20d706bc75553b&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content container">
+                <h1 class="display-large text-reveal-char">Vortex Cinema</h1>
+                <p class="lead reveal-fade">We shape visual identity. Creating world-class, premium music videos, high-fidelity live sessions, and editorial press kits for global artists.</p>
+                <div class="btn-container reveal-fade" style="justify-content: center;">
+                    <a href="portfolio.html" class="btn-primary btn-magnetic">Explore Work</a>
+                    <a href="contact.html" class="btn-secondary btn-magnetic">Book Consultation</a>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-indicator-line"></div>
+            </div>
+        </section>
+
+        <!-- Infinite Loop Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="marquee-text">MUSIC VIDEOS <span>•</span> EPK PRODUCTION <span>•</span> LIVE MUSIC SESSIONS <span>•</span> CINEMATIC STORYTELLING <span>•</span> </span>
+                <span class="marquee-text">MUSIC VIDEOS <span>•</span> EPK PRODUCTION <span>•</span> LIVE MUSIC SESSIONS <span>•</span> CINEMATIC STORYTELLING <span>•</span> </span>
+            </div>
+        </div>
+
+        <!-- Featured Work -->
+        <section class="asymmetric-sec container">
+            <div style="margin-bottom: var(--spacing-lg);">
+                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Featured Showcases</span>
+                <h2 class="display-medium" style="margin-top: 10px;">Select Productions</h2>
+            </div>
+            
+            <div class="grid-2">
+                <!-- Showcase Card 1 -->
+                <div class="showcase-card view-target" data-artist="AURA" data-category="music-videos" data-year="2026" data-director="Marcus Vance" data-label="Sony Music" data-dp="Alan Cruz" data-desc="An editorial visual concept tracking neon cityscapes and raw vocal performances." data-video="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdfdb1d26e1081518f8e2fa516086f059a4be29&profile_id=165&oauth2_token_id=57447761">
+                    <div class="card-media-wrapper">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="AURA Music Video Poster">
+                        <video loop muted playsinline src=""></video>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span>Music Video</span>
+                            <span>Sony Music</span>
+                        </div>
+                        <h3 class="card-title">AURA - Neon Shadows</h3>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 2 -->
+                <div class="showcase-card view-target" style="margin-top: 4rem;" data-artist="Kaelen" data-category="live-sessions" data-year="2026" data-director="Sofia Coppola" data-label="Atlantic Records" data-dp="Diana Prince" data-desc="Raw synthesizer-driven studio performance captured live in London." data-video="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761">
+                    <div class="card-media-wrapper">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Live Session Session Poster">
+                        <video loop muted playsinline src=""></video>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span>Live Session</span>
+                            <span>Atlantic Records</span>
+                        </div>
+                        <h3 class="card-title">Kaelen - Analog Echoes</h3>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 3 -->
+                <div class="showcase-card view-target" data-artist="Vortex Collective" data-category="epk" data-year="2025" data-director="Arthur Dent" data-label="Independent" data-dp="Tricia McMillan" data-desc="A beautiful editorial mini-doc behind the creation of their album." data-video="https://player.vimeo.com/external/554170366.sd.mp4?s=6c2ef6dc266a2468305f64ee4a46a6f67115ff6c&profile_id=165&oauth2_token_id=57447761">
+                    <div class="card-media-wrapper">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Behind the Scenes Documentary Poster">
+                        <video loop muted playsinline src=""></video>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span>EPK Document</span>
+                            <span>Independent</span>
+                        </div>
+                        <h3 class="card-title">Vortex Collective - Album Launch EPK</h3>
+                    </div>
+                </div>
+
+                <!-- Showcase Card 4 -->
+                <div class="showcase-card view-target" style="margin-top: 4rem;" data-artist="Sasha Grey" data-category="music-videos" data-year="2026" data-director="J.J. Abrams" data-label="Universal Music" data-dp="Larry Smith" data-desc="An award winning cinematic space-age concept video exploring light and lasers." data-video="https://player.vimeo.com/external/342898305.sd.mp4?s=34a49c2f6d90a775199672691f6bb9992f8a8ad1&profile_id=165&oauth2_token_id=57447761">
+                    <div class="card-media-wrapper">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Sasha Grey Space Video Poster">
+                        <video loop muted playsinline src=""></video>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span>Music Video</span>
+                            <span>Universal Music</span>
+                        </div>
+                        <h3 class="card-title">Sasha Grey - Starlight Glow</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <section class="container">
+            <h2 class="display-small" style="text-align: center; margin-bottom: var(--spacing-lg);">Trusted By</h2>
+            <div class="logo-strip">
+                <div class="logo-item">Universal</div>
+                <div class="logo-item">Sony Music</div>
+                <div class="logo-item">Warner Recs</div>
+                <div class="logo-item">Def Jam</div>
+                <div class="logo-item">Atlantic</div>
+                <div class="logo-item">A&amp;R Collective</div>
+            </div>
+        </section>
+
+        <!-- Live Captures Section (2 Videos) -->
+        <section class="container asymmetric-sec" style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl);">
+            <div style="margin-bottom: var(--spacing-lg);">
+                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Studio Performance</span>
+                <h2 class="display-medium" style="margin-top: 10px;">Live Studio Captures</h2>
+            </div>
+            <div class="grid-2">
+                <div class="reveal-fade" style="border: 1px solid var(--border); padding: var(--spacing-xs); background: var(--bg-card);">
+                    <div style="aspect-ratio: 16/9; overflow: hidden; position: relative; background: #121212;">
+                        <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800" src="https://player.vimeo.com/external/403816667.sd.mp4?s=77ba1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                    </div>
+                    <div style="padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-xs);">
+                        <span class="accent-text" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Capture 01</span>
+                        <h3 style="font-size: 1.4rem; margin-top: 5px; margin-bottom: 5px; font-family: var(--font-display);">Stage Lighting Sync</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Real-time lighting arrays programmed to scan stages according to song BPM.</p>
+                    </div>
+                </div>
+                
+                <div class="reveal-fade" style="border: 1px solid var(--border); padding: var(--spacing-xs); background: var(--bg-card);">
+                    <div style="aspect-ratio: 16/9; overflow: hidden; position: relative; background: #121212;">
+                        <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800" src="https://player.vimeo.com/external/434045526.sd.mp4?s=6a2d1d266a2468305f64ee4a46a6f67115ff6c&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                    </div>
+                    <div style="padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-xs);">
+                        <span class="accent-text" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Capture 02</span>
+                        <h3 style="font-size: 1.4rem; margin-top: 5px; margin-bottom: 5px; font-family: var(--font-display);">Analog Synthesizer Tracking</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Live close-ups capturing physical gear dial modulations and performance notes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-sec">
+            <div class="container grid-4">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="150+">150+</div>
+                    <div class="stat-label">Productions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="30+">30+</div>
+                    <div class="stat-label">Record Labels</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="10+">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50M+">50M+</div>
+                    <div class="stat-label">Combined Views</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA Section -->
+        <section class="closing-cta-sec">
+            <div class="container">
+                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Work With Us</span>
+                <h2 class="display-medium" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Let's shape your sound.</h2>
+                <p>We work directly with management, labels, and self-released creators. Contact our studio to lock in your next visual concept.</p>
+                <div class="btn-container" style="justify-content: center; margin-top: var(--spacing-md);">
+                    <a href="contact.html" class="btn-primary btn-magnetic">Initiate Booking</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container footer-top">
+            <div class="footer-logo-side">
+                <a href="index.html" class="logo">VORTEX<span>.</span></a>
+                <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="portfolio.html">Music Videos</a></li>
+                    <li><a href="portfolio.html">EPK Productions</a></li>
+                    <li><a href="portfolio.html">Live Sessions</a></li>
+                    <li><a href="about.html">Creative Strategy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Studio</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="about.html">Team Spec</a></li>
+                    <li><a href="portfolio.html">Works Archive</a></li>
+                    <li><a href="contact.html">Contact Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter-side">
+                <h4 class="footer-links-title">Newsletter</h4>
+                <p>Receive exclusive insights from upcoming cinematic projects.</p>
+                <form id="footer-newsletter">
+                    <input type="email" placeholder="Your email address" required aria-label="Newsletter Email Address">
+                    <button type="submit" aria-label="Subscribe to newsletter"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
+                <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Smooth Scroll ScrollTrigger Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Custom Orchestration Engine Files -->
+    <script src="js/theme.js"></script>
+    <script src="js/rtl.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
