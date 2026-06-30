@@ -20,10 +20,13 @@
         <div class="scroll-progress-bar"></div>
     </div>
 
-    <!-- Theme Toggle Control -->
+    <!-- Theme & RTL Controls -->
     <div class="auth-theme-toggle">
         <button class="control-btn theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
             <i class="fas fa-moon"></i>
+        </button>
+        <button class="control-btn rtl-toggle" id="rtl-toggle" aria-label="Toggle RTL Direction">
+            <i class="fa-solid fa-right-left"></i>
         </button>
     </div>
 
@@ -70,7 +73,7 @@
                     <div class="form-options" style="justify-content: flex-start; margin-top: var(--spacing-md); margin-bottom: var(--spacing-md);">
                         <label class="remember-me">
                             <input type="checkbox" id="agree-terms" required>
-                            <span>I agree to the <a href="#" class="hover-link" style="color: var(--accent); text-decoration: none;">Terms &amp; Conditions</a></span>
+                            <span>I agree to the <a href="#" class="accent-text hover-link">Terms &amp; Conditions</a></span>
                         </label>
                     </div>
 
@@ -86,7 +89,7 @@
                     </button>
                     
                     <div style="text-align: center; margin-top: var(--spacing-lg); font-size: 0.9rem; color: var(--text-muted);">
-                        Already have an account? <a href="login.html" class="accent-text" style="text-decoration: none;">Sign in here</a>
+                        Already have an account? <a href="login.html" class="accent-text">Sign in here</a>
                     </div>
                 </form>
             </div>

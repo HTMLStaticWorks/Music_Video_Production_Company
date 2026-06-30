@@ -77,9 +77,17 @@ p.lead {
     line-height: 1.5;
 }
 
-/* Accent Text */
+/* Accent Text & Links */
 .accent-text {
     color: var(--accent);
+}
+a.accent-text {
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+a.accent-text:hover {
+    color: var(--text) !important;
+    text-decoration: underline !important;
 }
 
 /* Grid & Flex */
@@ -1264,6 +1272,10 @@ p.lead {
 }
 
 /* RTL Authentication Overrides */
+[data-rtl="true"] .auth-theme-toggle {
+    right: auto;
+    left: 20px;
+}
 [data-rtl="true"] .password-toggle {
     right: auto;
     left: 15px;
@@ -1347,6 +1359,8 @@ p.lead {
     top: 20px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    gap: 10px;
 }
 .form-options {
     display: flex;
