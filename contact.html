@@ -38,19 +38,22 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li class="mobile-only-nav-btn">
+                        <a href="login.html" class="btn-primary nav-login-btn">Login</a>
+                    </li>
                     <li class="mobile-menu-controls">
                         <button class="control-btn theme-toggle-mob" aria-label="Toggle Theme">
-                            <i class="fas fa-moon"></i> Theme
+                            <i class="fas fa-moon"></i>
                         </button>
                         <button class="control-btn rtl-toggle-mob" aria-label="Toggle RTL Direction">
-                            <i class="fa-solid fa-right-left"></i> <span class="rtl-text">RTL</span>
+                            <i class="fa-solid fa-right-left"></i>
                         </button>
                     </li>
                 </ul>
             </nav>
 
             <div class="controls-wrapper">
-                <a href="login.html" class="btn-primary nav-login-btn">Login</a>
+                <a href="login.html" class="btn-primary nav-login-btn desktop-only-control">Login</a>
                 <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle"
                     aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
@@ -151,7 +154,7 @@
                         </div>
 
                         <button type="submit" class="btn-primary btn-magnetic"
-                            style="margin-top: var(--spacing-sm);">Submit Proposal</button>
+                            style="margin-top: var(--spacing-sm); width: 100%; text-align: center;">Submit Proposal</button>
                     </form>
 
                     <!-- Success State draw block -->
@@ -200,6 +203,16 @@
                         <span class="info-value">Within 24 Hours for Labels &amp; A&amp;R</span>
                     </div>
 
+                    <div class="info-item" style="margin-bottom: var(--spacing-md);">
+                        <span class="info-label">Connect With Us</span>
+                        <div class="footer-socials" style="justify-content: flex-start; margin-top: 10px;">
+                            <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
+                            <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
                     <!-- Map Embed -->
                     <div class="info-map-placeholder" style="padding: 0; overflow: hidden;">
                         <iframe
@@ -208,9 +221,11 @@
                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
+            </div> <!-- Close contact-grid -->
+        </section> <!-- Close the booking section -->
 
-                <!-- Studio Office Gallery (3 Images) -->
-                <section class="container asymmetric-sec"
+        <!-- Studio Office Gallery (3 Images) -->
+        <section class="container asymmetric-sec"
                     style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
                     <div style="margin-bottom: var(--spacing-sm); text-align: center;">
                         <span class="accent-text"
@@ -289,11 +304,14 @@
         </div>
 
         <div class="container footer-bottom">
-            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#"
-                    style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#"
-                    style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
+            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#" class="footer-bottom-link">Privacy Policy</a> | <a href="#" class="footer-bottom-link">Terms of Use</a></p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- GSAP Smooth Scroll Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

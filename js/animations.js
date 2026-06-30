@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 11. Horizontal Scroll Showcase (Home 2)
     const horizScrollContainer = document.querySelector('.horizontal-scroll-container');
-    if (horizScrollContainer && typeof ScrollTrigger !== 'undefined' && window.innerWidth > 992) {
+    if (horizScrollContainer && typeof ScrollTrigger !== 'undefined' && window.innerWidth > 1024) {
         gsap.to(horizScrollContainer, {
             x: () => -(horizScrollContainer.scrollWidth - window.innerWidth),
             ease: 'none',
@@ -387,4 +387,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 15. Back to Top Smooth Scroll
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

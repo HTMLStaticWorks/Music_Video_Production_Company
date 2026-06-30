@@ -20,15 +20,20 @@
         <div class="scroll-progress-bar"></div>
     </div>
 
-
+    <!-- Theme Toggle Control -->
+    <div class="auth-theme-toggle">
+        <button class="control-btn theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
 
     <main>
         <section class="container" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--spacing-xl) 0;">
             <div class="auth-container reveal-fade">
-                <div class="auth-header">
-                    <a href="index.html" class="logo" style="justify-content: center; margin-bottom: var(--spacing-md);"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
-                    <h1 class="display-small">Create Account</h1>
-                    <p class="lead" style="margin-top: 10px;">Join Vortex Cinema for exclusive production access.</p>
+                <div class="auth-header" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: var(--spacing-lg);">
+                    <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+                    <h1 class="display-small" style="margin: 0; white-space: normal; line-height: 1.3;">Create Account</h1>
+                    <p class="lead" style="margin: 0; max-width: 35ch;">Join Vortex Cinema for exclusive production access.</p>
                 </div>
                 
                 <form class="auth-form" action="#" method="POST">
@@ -62,7 +67,14 @@
                         </div>
                     </div>
                     
-                    <button type="submit" class="btn-primary" style="width: 100%; border-radius: 0; margin-top: var(--spacing-md);">Sign Up</button>
+                    <div class="form-options" style="justify-content: flex-start; margin-top: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                        <label class="remember-me">
+                            <input type="checkbox" id="agree-terms" required>
+                            <span>I agree to the <a href="#" class="hover-link" style="color: var(--accent); text-decoration: none;">Terms &amp; Conditions</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%; border-radius: 0;">Sign Up</button>
                     
                     <div class="auth-divider">Or continue with</div>
                     
@@ -89,6 +101,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/rtl.js"></script>
     <script src="js/main.js"></script>
     <script>
         function togglePassword(inputId, btn) {

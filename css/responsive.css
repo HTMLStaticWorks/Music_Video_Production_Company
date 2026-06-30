@@ -17,8 +17,8 @@
     }
 }
 
-/* Tablets (up to 992px) */
-@media (max-width: 992px) {
+/* Tablets (up to 1024px) */
+@media (max-width: 1024px) {
     :root {
         --spacing-xxl: 6rem;
         --spacing-xl: 4rem;
@@ -89,20 +89,34 @@
         justify-content: center;
     }
 
-    .mobile-menu-controls .control-btn {
-        border-radius: 30px;
-        width: auto;
-        height: 40px;
-        padding: 0 20px;
-        font-family: var(--font-body);
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+    .mobile-only-nav-btn {
+        display: block !important;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        margin-top: var(--spacing-sm);
+    }
+    
+    .mobile-only-nav-btn .nav-login-btn {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 1.6rem;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .controls-wrapper {
+        position: relative;
+        z-index: 1005;
+    }
+
+    .about-video-wrapper {
+        grid-column: span 2 !important;
+        width: 100% !important;
+    }
+    .about-image-column {
+        grid-column: span 2 !important;
+        width: 100% !important;
     }
 }
 
@@ -146,6 +160,18 @@
     
     .display-medium {
         font-size: clamp(1.2rem, 6vw, 1.5rem);
+    }
+
+    #portfolio-grid .portfolio-card, .accolades-grid > div, .workspace-grid > div {
+        width: 100% !important;
+    }
+    .about-video-wrapper {
+        grid-column: span 1 !important;
+        width: 100% !important;
+    }
+    .about-image-column {
+        grid-column: span 1 !important;
+        width: 100% !important;
     }
 }
 
@@ -214,8 +240,8 @@
     }
 }
 
-/* Mobile and Tablet Layout alignments & fixes (max-width: 992px) */
-@media (max-width: 992px) {
+/* Mobile and Tablet Layout alignments & fixes (max-width: 1024px) */
+@media (max-width: 1024px) {
     /* 1. Hamburger menu overrides */
     .hamburger {
         display: block !important;
@@ -367,4 +393,11 @@
 }
 .hero-sec .btn-secondary:hover {
     color: var(--bg) !important;
+}
+
+/* Mobile Accolades & Portfolio Card Width Adjustments (Cascade Override) */
+@media (max-width: 576px) {
+    #portfolio-grid .portfolio-card, .accolades-grid > div, .workspace-grid > div {
+        width: 100% !important;
+    }
 }
