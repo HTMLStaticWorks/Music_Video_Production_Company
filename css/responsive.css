@@ -381,18 +381,25 @@
     }
 }
 
-/* 2. Hero Section primary button contrast adjustment */
-.hero-sec .btn-primary {
+/* 2. Hero & Editorial Hero buttons contrast adjustment (ensures high contrast on dark headers regardless of theme) */
+.hero-sec .btn-primary, .editorial-hero-sec .btn-primary {
     color: #0A0A0A !important;
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
 }
-.hero-sec .btn-primary:hover {
-    color: var(--text) !important;
+.hero-sec .btn-primary:hover, .editorial-hero-sec .btn-primary:hover {
+    color: #F7F7F7 !important;
+    background-color: transparent !important;
+    border-color: #F7F7F7 !important;
 }
-.hero-sec .btn-secondary {
-    color: var(--text) !important;
+.hero-sec .btn-secondary, .editorial-hero-sec .btn-secondary {
+    color: #F7F7F7 !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
-.hero-sec .btn-secondary:hover {
-    color: var(--bg) !important;
+.hero-sec .btn-secondary:hover, .editorial-hero-sec .btn-secondary:hover {
+    background-color: #F7F7F7 !important;
+    color: #0A0A0A !important;
+    border-color: #F7F7F7 !important;
 }
 
 /* Mobile Accolades & Portfolio Card Width Adjustments (Cascade Override) */
