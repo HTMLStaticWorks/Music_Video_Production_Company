@@ -1,62 +1,44 @@
 /* RTL Layout Direction Engine - VORTEX CINEMA */
 
-console.log('RTL Engine: Loaded');
-
-(function() {
-    // Check and apply saved state immediately to prevent layout flash
+document.addEventListener('DOMContentLoaded', () => {
+    const rtlToggles = document.querySelectorAll('.rtl-toggle, .rtl-toggle-mob');
+    
+    // Check local storage
     const savedRTL = localStorage.getItem('vortex-rtl') === 'true';
-    console.log('RTL Engine: Initial saved state is', savedRTL);
+    
+    // Apply initial state
     setRTL(savedRTL);
 
-    function initRTL() {
-        const rtlToggles = document.querySelectorAll('.rtl-toggle, .rtl-toggle-mob');
-        console.log('RTL Engine: Initializing buttons, found:', rtlToggles.length);
-        
-        // Sync button text/states
-        updateButtons(savedRTL);
-
-        rtlToggles.forEach((toggle, index) => {
-            toggle.addEventListener('click', (e) => {
-                console.log(`RTL Engine: Button clicked (index ${index})`);
-                const isRTL = document.documentElement.getAttribute('data-rtl') === 'true';
-                setRTL(!isRTL);
-            });
+    // Toggle RTL on click
+    rtlToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentRTL = document.documentElement.getAttribute('data-rtl') === 'true';
+            setRTL(!currentRTL);
         });
-    }
+    });
+});
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initRTL);
-    } else {
-        initRTL();
-    }
+function setRTL(isRTL) {
+    document.documentElement.setAttribute('data-rtl', isRTL ? 'true' : 'false');
+    document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+    localStorage.setItem('vortex-rtl', isRTL ? 'true' : 'false');
+    
+    // Update all RTL toggle buttons
+    const rtlToggles = document.querySelectorAll('.rtl-toggle, .rtl-toggle-mob');
+    rtlToggles.forEach(toggle => {
+        const textSpan = toggle.querySelector('.rtl-text');
+        if (textSpan) {
+            textSpan.textContent = isRTL ? 'LTR' : 'RTL';
+        }
+        toggle.setAttribute('aria-label', isRTL ? 'Switch to LTR Layout' : 'Switch to RTL Layout');
+    });
 
-    function setRTL(isRTL) {
-        console.log('RTL Engine: Setting layout direction to', isRTL ? 'RTL' : 'LTR');
-        document.documentElement.setAttribute('data-rtl', isRTL ? 'true' : 'false');
-        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
-        localStorage.setItem('vortex-rtl', isRTL ? 'true' : 'false');
-        updateButtons(isRTL);
-        
-        // Dispatch directionchanged event
-        window.dispatchEvent(new CustomEvent('directionchanged', { detail: { isRTL: isRTL } }));
-
-        // Dispatch resize event and refresh GSAP ScrollTrigger to recalculate layout offsets
-        setTimeout(() => {
-            window.dispatchEvent(new Event('resize'));
-            if (window.ScrollTrigger) {
-                window.ScrollTrigger.refresh();
-            }
-        }, 150);
-    }
-
-    function updateButtons(isRTL) {
-        const rtlToggles = document.querySelectorAll('.rtl-toggle, .rtl-toggle-mob');
-        rtlToggles.forEach(toggle => {
-            const textSpan = toggle.querySelector('.rtl-text');
-            if (textSpan) {
-                textSpan.textContent = isRTL ? 'LTR' : 'RTL';
-            }
-            toggle.setAttribute('aria-label', isRTL ? 'Switch to Left to Right Layout' : 'Switch to Right to Left Layout');
-        });
-    }
-})();
+    // Refresh layout metrics
+    setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+        if (window.ScrollTrigger) {
+            window.ScrollTrigger.refresh();
+        }
+    }, 150);
+}

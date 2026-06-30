@@ -67,6 +67,9 @@
             width: 90%;
             text-align: left;
         }
+        [data-rtl="true"] .editorial-hero-content {
+            text-align: right;
+        }
         .editorial-showcase-sec {
             padding: var(--spacing-xl) 0;
             background-color: var(--bg);
@@ -150,6 +153,38 @@
             border-bottom: 1px solid var(--border);
             padding-bottom: var(--spacing-xs);
         }
+        
+        @media (max-width: 768px) {
+            .editorial-showcase-item {
+                align-items: flex-start;
+            }
+            .editorial-showcase-item .project-title-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .editorial-showcase-item h3 {
+                text-align: left !important;
+                margin-left: 0 !important;
+                line-height: 1.2;
+            }
+            .editorial-showcase-item .project-num {
+                line-height: 1.2;
+                margin-top: 4px;
+            }
+            .mood-img-col {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                width: 100% !important;
+                min-width: 100% !important;
+                justify-self: stretch !important;
+                max-width: 500px !important;
+                margin: 0 auto !important;
+            }
+            .mood-img-col > div {
+                width: 100% !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -168,8 +203,8 @@
                 <ul class="nav-links" id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home2.html">Home 2</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="mobile-menu-controls">
                         <button class="control-btn theme-toggle-mob" aria-label="Toggle Theme">
@@ -183,6 +218,7 @@
             </nav>
             
             <div class="controls-wrapper">
+                <a href="login.html" class="btn-primary nav-login-btn">Login</a>
                 <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -323,7 +359,7 @@
                 <div style="grid-column: span 2; border: 1px solid var(--border); padding: 5px; background: #121212; aspect-ratio: 16/9; overflow: hidden;">
                     <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800" src="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                <div class="mood-img-col" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
                     <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
                         <img class="skeleton" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600" loading="lazy" alt="Studio Mic" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
@@ -335,7 +371,7 @@
 
             <!-- Row 2: Image 3 & 4 + Video 2 -->
             <div class="grid-3 reveal-fade" style="gap: var(--spacing-md); align-items: center;">
-                <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                <div class="mood-img-col" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
                     <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
                         <img class="skeleton" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600" loading="lazy" alt="Studio Headphones" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
@@ -383,6 +419,12 @@
             <div class="footer-logo-side">
                 <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
                 <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
+                <div class="footer-socials" style="justify-content: flex-start; margin-top: 20px;">
+                    <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
+                    <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
             <div>
                 <h4 class="footer-links-title">Services</h4>
@@ -414,12 +456,6 @@
         
         <div class="container footer-bottom">
             <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
-            <div class="footer-socials">
-                <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
-                <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
         </div>
     </footer>
 

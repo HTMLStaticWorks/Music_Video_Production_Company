@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VORTEX CINEMA | Studio Booking Hub</title>
-    <meta name="description" content="Reach out to Vortex Cinema. Book a creative consult, lock in production dates, or contact our production coordination team directly.">
+    <meta name="description"
+        content="Reach out to Vortex Cinema. Book a creative consult, lock in production dates, or contact our production coordination team directly.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
+
     <!-- Premium Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Custom Style Modules -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
 
     <!-- Scroll Progress Indicator -->
@@ -27,13 +30,13 @@
     <header class="header-nav">
         <div class="nav-container">
             <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
-            
+
             <nav>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="home2.html">Home 2</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li class="mobile-menu-controls">
                         <button class="control-btn theme-toggle-mob" aria-label="Toggle Theme">
@@ -45,12 +48,15 @@
                     </li>
                 </ul>
             </nav>
-            
+
             <div class="controls-wrapper">
-                <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
+                <a href="login.html" class="btn-primary nav-login-btn">Login</a>
+                <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle"
+                    aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle" aria-label="Toggle RTL Direction">
+                <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle"
+                    aria-label="Toggle RTL Direction">
                     <i class="fa-solid fa-right-left"></i>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
@@ -63,22 +69,26 @@
     </header>
 
     <main>
-        
+
         <!-- Booking Intro Section -->
-        <section class="container" style="padding-top: calc(var(--nav-height) + var(--spacing-lg)); padding-bottom: var(--spacing-md);">
-            <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Initiate Session</span>
+        <section class="container"
+            style="padding-top: calc(var(--nav-height) + var(--spacing-lg)); padding-bottom: var(--spacing-md);">
+            <span class="accent-text"
+                style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Initiate
+                Session</span>
             <h1 class="display-medium" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Book Vortex</h1>
-            <p class="lead">Connect with our production office in London. Provide details on track length, target timeline, record label involvement, and design budgets to begin script treatment drafting.</p>
+            <p class="lead">Connect with our production office in London. Provide details on track length, target
+                timeline, record label involvement, and design budgets to begin script treatment drafting.</p>
         </section>
 
         <!-- Booking Form & Info Section -->
         <section class="container" style="padding-top: 0; padding-bottom: var(--spacing-xl);">
             <div class="contact-grid">
-                
+
                 <!-- Form Side -->
                 <div class="form-wrapper">
                     <form id="booking-form" novalidate>
-                        
+
                         <!-- Name & Email Row -->
                         <div class="form-row">
                             <div class="form-group">
@@ -140,19 +150,23 @@
                             <div class="char-counter" id="char-counter">0 / 1000</div>
                         </div>
 
-                        <button type="submit" class="btn-primary btn-magnetic" style="margin-top: var(--spacing-sm);">Submit Proposal</button>
+                        <button type="submit" class="btn-primary btn-magnetic"
+                            style="margin-top: var(--spacing-sm);">Submit Proposal</button>
                     </form>
 
                     <!-- Success State draw block -->
                     <div class="form-success-state" id="form-success-state">
                         <div class="success-svg-wrapper">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2" style="width: 100%; height: 100%;">
-                                <circle class="success-circle" cx="65.1" cy="65.1" r="62.1"/>
-                                <polyline class="success-check" points="100.2,40.2 51.5,88.8 29.8,67.1"/>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"
+                                style="width: 100%; height: 100%;">
+                                <circle class="success-circle" cx="65.1" cy="65.1" r="62.1" />
+                                <polyline class="success-check" points="100.2,40.2 51.5,88.8 29.8,67.1" />
                             </svg>
                         </div>
                         <h2 class="display-small" style="color: var(--accent);">Proposal Received</h2>
-                        <p style="margin: var(--spacing-xs) auto var(--spacing-sm); max-width: 45ch;">Thank you. Your project specifications have been logged. A creative treatment director will review your audio track and reach out within 24 hours.</p>
+                        <p style="margin: var(--spacing-xs) auto var(--spacing-sm); max-width: 45ch;">Thank you. Your
+                            project specifications have been logged. A creative treatment director will review your
+                            audio track and reach out within 24 hours.</p>
                         <a href="index.html" class="btn-secondary btn-magnetic">Back to Home</a>
                     </div>
                 </div>
@@ -160,7 +174,7 @@
                 <!-- Studio Information Side -->
                 <div class="studio-info-side">
                     <h2 class="display-small" style="margin-bottom: var(--spacing-md);">Studio Office</h2>
-                    
+
                     <div class="info-item">
                         <span class="info-label">Address</span>
                         <span class="info-value">12 Cinematic Avenue, London, EC1A 1BB</span>
@@ -186,30 +200,47 @@
                         <span class="info-value">Within 24 Hours for Labels &amp; A&amp;R</span>
                     </div>
 
-                    <!-- Map Placeholder -->
-                    <div class="info-map-placeholder">
-                        <span><i class="fas fa-map-marked-alt" style="margin-right: 8px;"></i> Interactive Studio Map Grid</span>
+                    <!-- Map Embed -->
+                    <div class="info-map-placeholder" style="padding: 0; overflow: hidden;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.1004149842295644!3d51.5144653796362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b55977a4197%3A0xb1529d20c5d5e236!2sEC1A%201BB%2C%20London%2C%20UK!5e0!3m2!1sen!2sus!4v1655388034437!5m2!1sen!2sus"
+                            width="100%" height="100%" style="border:0; filter: grayscale(100%) opacity(0.9);"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
-        <!-- Studio Office Gallery (3 Images) -->
-        <section class="container asymmetric-sec" style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
-            <div style="margin-bottom: var(--spacing-lg);">
-                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Office Atmosphere</span>
-                <h2 class="display-medium" style="margin-top: 10px;">Our Workspace</h2>
-            </div>
-            <div class="grid-3" style="gap: var(--spacing-md);">
-                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
-                    <img class="skeleton" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600" loading="lazy" alt="Mixing Console" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
-                    <img class="skeleton" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" loading="lazy" alt="Drums Room" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="reveal-fade" style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
-                    <img class="skeleton" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600" loading="lazy" alt="Production Slate" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-        </section>
+                <!-- Studio Office Gallery (3 Images) -->
+                <section class="container asymmetric-sec"
+                    style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
+                    <div style="margin-bottom: var(--spacing-sm); text-align: center;">
+                        <span class="accent-text"
+                            style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Office
+                            Atmosphere</span>
+                        <h2 class="display-medium" style="margin-top: 10px;">Our Workspace</h2>
+                    </div>
+                    <div class="grid-3 workspace-grid" style="gap: var(--spacing-sm); justify-content: center;">
+                        <div class="reveal-fade"
+                            style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                            <img class="skeleton"
+                                src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600"
+                                loading="lazy" alt="Mixing Console"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="reveal-fade"
+                            style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                            <img class="skeleton"
+                                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600"
+                                loading="lazy" alt="Drums Room" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="reveal-fade"
+                            style="border: 1px solid var(--border); aspect-ratio: 4/3; overflow: hidden; background: var(--bg-card);">
+                            <img class="skeleton"
+                                src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600"
+                                loading="lazy" alt="Production Slate"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </section>
 
     </main>
 
@@ -217,8 +248,16 @@
     <footer class="footer">
         <div class="container footer-top">
             <div class="footer-logo-side">
-                <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
-                <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
+                <a href="index.html" class="logo"><i
+                        class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+                <p>Award-winning premium creative video production studio specializing in artist-centric visual content.
+                </p>
+                <div class="footer-socials" style="justify-content: flex-start; margin-top: 20px;">
+                    <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
+                    <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
             <div>
                 <h4 class="footer-links-title">Services</h4>
@@ -243,19 +282,16 @@
                 <p>Receive exclusive insights from upcoming cinematic projects.</p>
                 <form id="footer-newsletter">
                     <input type="email" placeholder="Your email address" required aria-label="Newsletter Email Address">
-                    <button type="submit" aria-label="Subscribe to newsletter"><i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" aria-label="Subscribe to newsletter"><i
+                            class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
-        
+
         <div class="container footer-bottom">
-            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#" style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
-            <div class="footer-socials">
-                <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Follow Vortex on Vimeo"><i class="fab fa-vimeo-v"></i></a>
-                <a href="#" aria-label="Follow Vortex on Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Follow Vortex on YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
+            <p>&copy; 2026 VORTEX CINEMA. All rights reserved. <a href="#"
+                    style="color: inherit; text-decoration: none; margin-left: 10px;">Privacy Policy</a> | <a href="#"
+                    style="color: inherit; text-decoration: none; margin-left: 10px;">Terms of Use</a></p>
         </div>
     </footer>
 
@@ -274,4 +310,5 @@
     <script src="js/form.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
