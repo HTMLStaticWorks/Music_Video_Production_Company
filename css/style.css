@@ -262,7 +262,7 @@ p.lead {
 
 .btn-primary, .btn-secondary {
     display: inline-block;
-    padding: 1.1rem 2.2rem;
+    padding: 0.8rem 1.6rem;
     font-family: var(--font-body);
     font-weight: 600;
     text-transform: uppercase;
@@ -1148,14 +1148,23 @@ p.lead {
 .auth-container {
     max-width: 500px;
     margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-md);
     width: 100%;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
 }
+@media (max-width: 480px) {
+    .auth-container {
+        padding: var(--spacing-lg) 1.25rem;
+    }
+}
 .auth-header {
     text-align: center;
     margin-bottom: var(--spacing-lg);
+}
+.auth-header h1 {
+    white-space: nowrap;
+    font-size: clamp(0.95rem, 5.5vw, 1.8rem);
 }
 .auth-form .form-group {
     position: relative;
@@ -1220,7 +1229,7 @@ p.lead {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    padding: 1rem;
+    padding: 0.8rem;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--text);
