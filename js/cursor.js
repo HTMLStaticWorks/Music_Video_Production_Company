@@ -1,10 +1,8 @@
 /* Custom Cursor Engine - VORTEX CINEMA */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Only initialize custom cursor on devices that support hover (non-touch)
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        return;
-    }
+    // Disabled custom cursor - keeping default browser arrow cursor
+    return;
 
     // Auto-inject cursor markup
     const cursorContainer = document.createElement('div');
