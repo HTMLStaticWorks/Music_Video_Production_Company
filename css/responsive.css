@@ -410,3 +410,13 @@
         width: 100% !important;
     }
 }
+
+/* Portfolio & Layout Grid Equal Sizing & Alignment Overrides */
+@media (max-width: 1024px) {
+    #portfolio-grid, .accolades-grid, .workspace-grid {
+        align-items: stretch !important;
+    }
+    #portfolio-grid .card-title {
+        min-height: 4.5em; /* Keep all cards uniform size on tablet/mobile screens */
+    }
+}

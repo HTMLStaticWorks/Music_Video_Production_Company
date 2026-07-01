@@ -1376,12 +1376,20 @@ a.accent-text:hover {
     cursor: pointer;
     color: var(--text-muted);
     user-select: none;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+.remember-me span,
+.remember-me a {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 .remember-me input[type="checkbox"] {
     accent-color: var(--accent);
     cursor: pointer;
     width: 16px;
     height: 16px;
+    flex-shrink: 0 !important;
 }
 .forgot-password {
     color: var(--accent);
