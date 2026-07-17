@@ -29,7 +29,7 @@
     <!-- Navigation Header -->
     <header class="header-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX</a>
             
             <nav>
                 <ul class="nav-links" id="nav-links">
@@ -53,13 +53,13 @@
             </nav>
             
             <div class="controls-wrapper">
-                <a href="login.html" class="btn-primary nav-login-btn desktop-only-control">Login</a>
                 <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
                 <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle" aria-label="Toggle RTL Direction">
                     <i class="fa-solid fa-right-left"></i>
                 </button>
+                <a href="login.html" class="btn-primary nav-login-btn desktop-only-control">Login</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
@@ -122,7 +122,7 @@
 
                 <!-- Team Member 4 -->
                 <div class="team-card view-target">
-                    <img class="team-photo skeleton" src="https://th.bing.com/th/id/R.4e708103df2d2a8c27567d88672a76f2?rik=TVq8AcPgvVXQIg&amp;riu=http%3a%2f%2fcreativeinterviews.com%2fcrint%2fwp-content%2fuploads%2f2014%2f09%2fBrian-Anstey.jpg&amp;ehk=ahf62cz2ECjwj%2fSLixKUY89fU8NNaCeygMnnHpWwCcU%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0" loading="lazy" alt="Marcus Vance">
+                    <img class="team-photo skeleton" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Marcus Vance">
                     <div class="team-info-overlay">
                         <h3 class="team-name">Marcus Vance</h3>
                         <span class="team-role">Head of Post-Production</span>
@@ -131,22 +131,56 @@
             </div>
         </section>
 
-        <!-- Editorial Atmosphere Collage (1 Video + 2 Images) -->
+        <!-- Production Process Section -->
+        <section class="container" style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
+            <div style="margin-bottom: var(--spacing-lg); text-align: center;">
+                <span class="accent-label">How We Work</span>
+                <h2 class="display-medium" style="margin-top: 10px; margin-bottom: 0;">The Production Process</h2>
+            </div>
+            
+            <div class="grid-3" style="gap: var(--spacing-md);">
+                <!-- Step 1 -->
+                <div class="stat-card" style="text-align: left; position: relative;">
+                    <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: rgba(0, 240, 255, 0.15); position: absolute; top: var(--spacing-xs); right: var(--spacing-sm); line-height: 1;">01</div>
+                    <span class="accent-label">Phase I</span>
+                    <h3 style="font-size: 1.5rem; margin-top: 5px; margin-bottom: 15px; font-family: var(--font-display);">Pre-Production</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">Creative treatment design, storyboarding, location scouting, casting, and styling. We align closely with labels and artists to build the visual foundation before the cameras roll.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="stat-card" style="text-align: left; position: relative;">
+                    <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: rgba(176, 38, 255, 0.15); position: absolute; top: var(--spacing-xs); right: var(--spacing-sm); line-height: 1;">02</div>
+                    <span class="accent-label" style="color: var(--accent-secondary);">Phase II</span>
+                    <h3 style="font-size: 1.5rem; margin-top: 5px; margin-bottom: 15px; font-family: var(--font-display);">Production</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">Principal photography using our high-end optical packages, lighting layouts, and modular tracking rigs. Guided by elite directors and DPs on set to capture raw performance and narrative frames.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="stat-card" style="text-align: left; position: relative;">
+                    <div style="font-family: var(--font-display); font-size: 4rem; font-weight: 800; color: rgba(0, 240, 255, 0.15); position: absolute; top: var(--spacing-xs); right: var(--spacing-sm); line-height: 1;">03</div>
+                    <span class="accent-label">Phase III</span>
+                    <h3 style="font-size: 1.5rem; margin-top: 5px; margin-bottom: 15px; font-family: var(--font-display);">Post-Production</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.6;">Accurate color grading on DaVinci Resolve desks, offline/online editing, sound design synchronization, and direct delivery. We render every detail to broadcast perfection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Atmosphere Collage (Behind the Scenes) -->
         <section class="container asymmetric-sec" style="border-top: 1px solid var(--border); padding-top: var(--spacing-xl);">
             <div style="margin-bottom: var(--spacing-lg);">
-                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Creative Atmosphere</span>
+                <span class="accent-label">Creative Atmosphere</span>
                 <h2 class="display-medium" style="margin-top: 10px;">Behind the Lens</h2>
             </div>
             <div class="grid-3" style="align-items: center; gap: var(--spacing-md);">
-                <div class="reveal-fade about-video-wrapper" style="border: 1px solid var(--border); padding: 5px; background: #121212; aspect-ratio: 16/9; overflow: hidden;">
-                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?q=80&w=800" src="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdfdb1d26e1081518f8e2fa516086f059a4be29&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <div class="reveal-fade about-video-wrapper" style="border: 1px solid var(--glass-border); border-radius: 16px; padding: 8px; background: var(--bg-card); backdrop-filter: blur(12px); aspect-ratio: 16/9; overflow: hidden; position: relative;">
+                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?q=80&w=800" src="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdfdb1d26e1081518f8e2fa516086f059a4be29&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></video>
                 </div>
                 <div class="about-image-column" style="display: flex; flex-direction: column; gap: var(--spacing-md); width: 100%;">
-                    <div class="reveal-fade" style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=600" loading="lazy" alt="Guitar Performance" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="reveal-fade" style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1598897349388-0036a3b11855?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Director monitor checking details on set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
-                    <div class="reveal-fade" style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1516280440614-37939bbacd6a?q=80&w=600" loading="lazy" alt="Vocalist Microphone" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="reveal-fade" style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Clapperboard on filming set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
                 </div>
             </div>
@@ -155,9 +189,12 @@
         <!-- Equipment Specs Blueprint Cards -->
         <section class="container grid-2" style="align-items: start; padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
             <div>
-                <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Technical Specs</span>
+                <span class="accent-label">Technical Specs</span>
                 <h2 class="display-small" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Studio Arsenal</h2>
-                <p>We own, maintain, and configure our filming equipment, lighting rigs, and editing server specs. This gives us full flexibility during high-priority setups.</p>
+                <p style="margin-bottom: var(--spacing-md);">We own, maintain, and configure our filming equipment, lighting rigs, and editing server specs. This gives us full flexibility during high-priority setups.</p>
+                <div style="border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; aspect-ratio: 16/10; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                    <img class="skeleton" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Production Gear Set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                </div>
             </div>
             
             <div>
@@ -254,7 +291,7 @@
     <footer class="footer">
         <div class="container footer-top">
             <div class="footer-logo-side">
-                <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+                <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX</a>
                 <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
                 <div class="footer-socials" style="justify-content: flex-start; margin-top: 20px;">
                     <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>

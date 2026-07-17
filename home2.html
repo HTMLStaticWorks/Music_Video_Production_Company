@@ -89,14 +89,21 @@
         .editorial-showcase-item {
             display: flex;
             align-items: center;
-            padding: var(--spacing-lg) 0;
-            border-bottom: 1px solid var(--border);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
             position: relative;
             cursor: pointer;
-            transition: border-color 0.4s ease;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(12px);
         }
         .editorial-showcase-item:hover {
             border-color: var(--accent);
+            box-shadow: var(--glow-shadow);
+            transform: scale(1.02);
+            background: rgba(10, 10, 18, 0.9);
         }
         .editorial-showcase-item .project-num {
             font-family: var(--font-display);
@@ -194,18 +201,36 @@
             }
         }
         
-        /* Centering hero button & stat alignments */
+        /* Bento Box Stats */
         .stat-box {
-            border-left: 2px solid var(--accent);
-            padding-left: 15px;
-            text-align: left;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: var(--spacing-md);
+            text-align: center;
+            backdrop-filter: blur(16px);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--glow-shadow);
+        }
+        .stat-box:hover::before {
+            opacity: 1;
         }
         [data-rtl="true"] .stat-box {
-            border-left: none;
-            border-right: 2px solid var(--accent);
-            padding-left: 0;
-            padding-right: 15px;
-            text-align: right;
+            text-align: center;
         }
         @media (max-width: 1024px) {
             .editorial-hero-content {
@@ -242,7 +267,7 @@
     <!-- Navigation Header -->
     <header class="header-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+            <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX</a>
             
             <nav>
                 <ul class="nav-links" id="nav-links">
@@ -266,13 +291,13 @@
             </nav>
             
             <div class="controls-wrapper">
-                <a href="login.html" class="btn-primary nav-login-btn desktop-only-control">Login</a>
                 <button class="control-btn theme-toggle desktop-only-control" id="theme-toggle" aria-label="Toggle Theme">
                     <i class="fas fa-moon"></i>
                 </button>
                 <button class="control-btn rtl-toggle desktop-only-control" id="rtl-toggle" aria-label="Toggle RTL Direction">
                     <i class="fa-solid fa-right-left"></i>
                 </button>
+                <a href="login.html" class="btn-primary nav-login-btn desktop-only-control">Login</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
@@ -291,10 +316,13 @@
             </video>
             <div class="editorial-hero-overlay"></div>
             
+            <!-- Abstract Glowing Orb -->
+            <div style="position: absolute; width: 800px; height: 800px; background: radial-gradient(circle, var(--accent) 0%, var(--accent-secondary) 30%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; filter: blur(80px); z-index: 1;"></div>
+            
             <div class="editorial-hero-content">
-                <span class="accent-text text-reveal-char" style="text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; font-size: 0.9rem;">Creative Journal</span>
-                <h1 class="display-large text-reveal-char" style="margin-top: 10px; margin-bottom: var(--spacing-sm); font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95;">Visual Songs.</h1>
-                <p class="lead reveal-fade" style="max-width: 600px; margin-top: var(--spacing-sm);">Vortex Cinema operates at the intersection of music culture and high-end film optics. We design bespoke visual frames for artists who reject traditional styling formats.</p>
+                <span class="accent-text text-reveal-char" style="text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; font-size: 0.95rem;">Creative Journal</span>
+                <h1 class="display-large text-reveal-char" style="margin-top: 15px; margin-bottom: var(--spacing-sm); font-size: clamp(3.5rem, 8vw, 7.5rem); line-height: 0.95; letter-spacing: -0.03em;">Visual Songs.</h1>
+                <p class="lead reveal-fade" style="max-width: 600px; margin-top: var(--spacing-sm); font-weight: 400; color: #E0E0E0;">Vortex Cinema operates at the intersection of music culture and high-end film optics. We design bespoke visual frames for artists who reject traditional styling formats.</p>
                 <div class="reveal-fade" style="margin-top: var(--spacing-md);">
                     <a href="about.html" class="btn-primary btn-magnetic">Explore Ethos</a>
                 </div>
@@ -404,15 +432,15 @@
             
             <!-- Row 1: Video 1 + Image 1 & 2 -->
             <div class="grid-3 reveal-fade" style="gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
-                <div style="grid-column: span 2; border: 1px solid var(--border); padding: 5px; background: #121212; aspect-ratio: 16/9; overflow: hidden;">
-                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800" src="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <div style="grid-column: span 2; border: 1px solid var(--glass-border); border-radius: 16px; padding: 8px; background: var(--bg-card); backdrop-filter: blur(12px); aspect-ratio: 16/9; overflow: hidden; position: relative;">
+                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800" src="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></video>
                 </div>
                 <div class="mood-img-col" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600" loading="lazy" alt="Studio Mic" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600" loading="lazy" alt="Studio Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
-                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1487180142328-054b783fc471?q=80&w=600" loading="lazy" alt="Record Sleeves" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=600" loading="lazy" alt="Creative Laser Art" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
                 </div>
             </div>
@@ -420,15 +448,15 @@
             <!-- Row 2: Image 3 & 4 + Video 2 -->
             <div class="grid-3 reveal-fade" style="gap: var(--spacing-md); align-items: center;">
                 <div class="mood-img-col" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600" loading="lazy" alt="Studio Headphones" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=600" loading="lazy" alt="Director Camera Monitor" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
-                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border);">
-                        <img class="skeleton" src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=600" loading="lazy" alt="Stage Light" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div style="aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--glass-border); border-radius: 16px; padding: 6px; background: var(--bg-card); backdrop-filter: blur(12px);">
+                        <img class="skeleton" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600" loading="lazy" alt="Cinematic Stage Set" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
                     </div>
                 </div>
-                <div style="grid-column: span 2; border: 1px solid var(--border); padding: 5px; background: #121212; aspect-ratio: 16/9; overflow: hidden;">
-                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800" src="https://player.vimeo.com/external/409204043.sd.mp4?s=79fa3b42f6c04f98127ef6476b7dbb3cc61d6bc0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <div style="grid-column: span 2; border: 1px solid var(--glass-border); border-radius: 16px; padding: 8px; background: var(--bg-card); backdrop-filter: blur(12px); aspect-ratio: 16/9; overflow: hidden; position: relative;">
+                    <video class="skeleton" autoplay loop muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800" src="https://player.vimeo.com/external/409204043.sd.mp4?s=79fa3b42f6c04f98127ef6476b7dbb3cc61d6bc0&profile_id=165&oauth2_token_id=57447761" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></video>
                 </div>
             </div>
         </section>
@@ -465,7 +493,7 @@
     <footer class="footer">
         <div class="container footer-top">
             <div class="footer-logo-side">
-                <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX<span>.</span></a>
+                <a href="index.html" class="logo"><i class="fa-solid fa-hurricane logo-icon"></i>VORTEX</a>
                 <p>Award-winning premium creative video production studio specializing in artist-centric visual content.</p>
                 <div class="footer-socials" style="justify-content: flex-start; margin-top: 20px;">
                     <a href="#" aria-label="Follow Vortex on Instagram"><i class="fab fa-instagram"></i></a>

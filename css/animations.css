@@ -208,11 +208,13 @@ html.custom-cursor-active .editorial-showcase-item {
 
 .marquee-content {
     display: inline-block;
+    white-space: nowrap;
     animation: marquee 25s linear infinite;
     padding-left: 0;
 }
 
 .marquee-text {
+    display: inline-block;
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 5rem);
     font-weight: 800;
@@ -221,6 +223,7 @@ html.custom-cursor-active .editorial-showcase-item {
     -webkit-text-stroke: 1px var(--text);
     letter-spacing: 0.05em;
     margin-right: 2rem;
+    white-space: nowrap;
 }
 
 .marquee-text span {
@@ -247,20 +250,39 @@ html.custom-cursor-active .editorial-showcase-item {
 .showcase-card {
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border);
-    transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: var(--transition-smooth);
 }
 
 .showcase-card:hover {
-    border-color: rgba(var(--accent-rgb), 0.5);
+    border-color: var(--accent);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: var(--glow-shadow), 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .card-media-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 42.8%; /* 21:9 Widescreen Anamorphic Ratio */
     overflow: hidden;
+}
+
+/* Cinematic Vignette Overlay */
+.card-media-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(5, 5, 10, 0.8) 120%);
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.5s ease;
 }
 
 .card-media-wrapper img,
@@ -271,17 +293,18 @@ html.custom-cursor-active .editorial-showcase-item {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-media-wrapper video {
     opacity: 0;
-    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .showcase-card:hover .card-media-wrapper img {
-    transform: scale(1.05) blur(2px);
-    opacity: 0.3;
+    transform: scale(1.05);
+    opacity: 0.2;
 }
 
 .showcase-card:hover .card-media-wrapper video {
@@ -290,29 +313,39 @@ html.custom-cursor-active .editorial-showcase-item {
 }
 
 .card-info {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(180deg, rgba(10,10,18,0) 0%, rgba(5,5,10,0.4) 100%);
+    border-top: 1px solid var(--border);
+    z-index: 3;
 }
 
 .card-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.card-meta span:first-child {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .card-title {
-    font-size: 1.25rem;
-    letter-spacing: 0.02em;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--text);
     transition: color 0.3s ease;
-    min-height: 2.8em;
+    min-height: 1.4em;
+    margin: 0;
 }
 
 .showcase-card:hover .card-title {
-    color: var(--accent);
+    color: var(--text);
 }
 
 /* --- Image Mask / Slide In Reveal --- */
