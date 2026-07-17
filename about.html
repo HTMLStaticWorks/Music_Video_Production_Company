@@ -18,6 +18,9 @@
 </head>
 <body>
 
+    <!-- Film Grain Background Overlay -->
+    <div class="film-grain"></div>
+
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
         <div class="scroll-progress-bar"></div>
@@ -149,8 +152,8 @@
             </div>
         </section>
 
-        <!-- Equipment Specs Accordion -->
-        <section class="container grid-2" style="align-items: start;">
+        <!-- Equipment Specs Blueprint Cards -->
+        <section class="container grid-2" style="align-items: start; padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl);">
             <div>
                 <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Technical Specs</span>
                 <h2 class="display-small" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Studio Arsenal</h2>
@@ -158,36 +161,56 @@
             </div>
             
             <div>
-                <!-- Accordion Item 1 -->
-                <div class="equip-accordion-item">
-                    <div class="equip-header">
-                        <span class="equip-title">Digital Cinema Cameras</span>
-                        <i class="fas fa-plus equip-icon"></i>
-                    </div>
-                    <div class="equip-body">
-                        <p>Arri Alexa Mini LF, RED V-Raptor 8K systems, Sony Venice 2 dual-ISO cinema lines, equipped with anamorphic Cooke and Atlas Orion optics packs.</p>
-                    </div>
-                </div>
-
-                <!-- Accordion Item 2 -->
-                <div class="equip-accordion-item">
-                    <div class="equip-header">
-                        <span class="equip-title">Lighting Setup Specs</span>
-                        <i class="fas fa-plus equip-icon"></i>
-                    </div>
-                    <div class="equip-body">
-                        <p>Aputure Electro Storm lines, ARRI Skypanel arrays, Astera Titan tubes, custom DMX projection mapping setups, and high-frequency laser units.</p>
+                <!-- Blueprint Spec 1 -->
+                <div class="blueprint-card">
+                    <h3 style="font-size: 1.25rem; font-family: var(--font-display); margin-bottom: var(--spacing-sm);">Digital Cinema Cameras</h3>
+                    <div class="blueprint-grid">
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Rig A</span>
+                            <div class="blueprint-value">Arri Alexa Mini LF</div>
+                        </div>
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Rig B</span>
+                            <div class="blueprint-value">RED V-Raptor 8K</div>
+                        </div>
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Optics</span>
+                            <div class="blueprint-value">Cooke Anamorphic / Atlas Orion Pack</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Accordion Item 3 -->
-                <div class="equip-accordion-item">
-                    <div class="equip-header">
-                        <span class="equip-title">Post Production Server Specs</span>
-                        <i class="fas fa-plus equip-icon"></i>
+                <!-- Blueprint Spec 2 -->
+                <div class="blueprint-card">
+                    <h3 style="font-size: 1.25rem; font-family: var(--font-display); margin-bottom: var(--spacing-sm);">Lighting & Projection</h3>
+                    <div class="blueprint-grid">
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">LED Panels</span>
+                            <div class="blueprint-value">Aputure Electro Storm / ARRI Skypanels</div>
+                        </div>
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Pixel Tubes</span>
+                            <div class="blueprint-value">Astera Titan Tubes</div>
+                        </div>
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">System Control</span>
+                            <div class="blueprint-value">DMX / High-Frequency Lasers</div>
+                        </div>
                     </div>
-                    <div class="equip-body">
-                        <p>Multi-seat offline editing rooms, DaVinci Resolve Studio grading desks with full hardware surfaces, and real-time GPU-accelerated motion graphics nodes.</p>
+                </div>
+
+                <!-- Blueprint Spec 3 -->
+                <div class="blueprint-card">
+                    <h3 style="font-size: 1.25rem; font-family: var(--font-display); margin-bottom: var(--spacing-sm);">Post-Production Pipeline</h3>
+                    <div class="blueprint-grid">
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Grading Desks</span>
+                            <div class="blueprint-value">DaVinci Resolve Studio hardware surfaces</div>
+                        </div>
+                        <div class="blueprint-spec-item">
+                            <span class="blueprint-label">Render Nodes</span>
+                            <div class="blueprint-value">Multi-GPU accelerated nodes</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -281,14 +304,13 @@
     <!-- GSAP Smooth Scroll Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <!-- Custom Orchestration Engines -->
     <script src="js/theme.js"></script>
     <script src="js/rtl.js"></script>
-    <script src="js/cursor.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/audio.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
 </body>

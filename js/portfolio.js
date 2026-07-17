@@ -50,31 +50,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeIndex = -1;
     let projectsData = [];
 
-    // Capture project details from cards
+    // Capture project details from cards and list items
     const initProjectsData = () => {
         projectsData = [];
-        const cards = document.querySelectorAll('.portfolio-card');
-        cards.forEach((card, idx) => {
-            projectsData.push({
-                index: idx,
-                title: card.querySelector('.card-title').innerText,
-                artist: card.getAttribute('data-artist') || 'Unknown Artist',
-                category: card.getAttribute('data-category') || 'Production',
-                year: card.getAttribute('data-year') || '2026',
-                videoUrl: card.getAttribute('data-video') || '',
-                director: card.getAttribute('data-director') || 'Vortex Directors',
-                label: card.getAttribute('data-label') || 'Independent',
-                dp: card.getAttribute('data-dp') || 'Vortex DP',
-                desc: card.getAttribute('data-desc') || 'A premium visual production exploring identity, sound, and lighting.',
-                visible: card.style.display !== 'none'
-            });
+        const uniqueVideos = new Set();
+        
+        // Query both card forms and list rows
+        const rawElements = document.querySelectorAll('.showcase-card, .portfolio-card, .portfolio-list-item');
+        
+        rawElements.forEach((el) => {
+            const videoUrl = el.getAttribute('data-video') || '';
+            const artist = el.getAttribute('data-artist') || 'Unknown Artist';
+            const titleEl = el.querySelector('.card-title') || el.querySelector('h3');
+            const title = titleEl ? titleEl.innerText : 'Untitled';
             
-            // Set up click listener on card to open modal
-            card.addEventListener('click', (e) => {
+            if (videoUrl && !uniqueVideos.has(videoUrl)) {
+                uniqueVideos.add(videoUrl);
+                
+                projectsData.push({
+                    index: projectsData.length,
+                    title: title,
+                    artist: artist,
+                    category: el.getAttribute('data-category') || 'Production',
+                    year: el.getAttribute('data-year') || '2026',
+                    videoUrl: videoUrl,
+                    director: el.getAttribute('data-director') || 'Vortex Directors',
+                    label: el.getAttribute('data-label') || 'Independent',
+                    dp: el.getAttribute('data-dp') || 'Vortex DP',
+                    desc: el.getAttribute('data-desc') || 'A premium visual production exploring identity, sound, and lighting.',
+                    visible: true
+                });
+            }
+            
+            // Set up click listener on every card/list item to open modal
+            el.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Find matching project data
-                activeIndex = idx;
-                openCinemaModal(projectsData[idx]);
+                // Find matching project in our unique list
+                const matchIndex = projectsData.findIndex(p => p.videoUrl === videoUrl);
+                if (matchIndex !== -1) {
+                    activeIndex = matchIndex;
+                    openCinemaModal(projectsData[matchIndex]);
+                }
             });
         });
     };
@@ -86,9 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 setTimeout(() => {
-                    const cards = document.querySelectorAll('.portfolio-card');
-                    cards.forEach((card, idx) => {
-                        projectsData[idx].visible = card.style.display !== 'none';
+                    projectsData.forEach((proj) => {
+                        // find corresponding elements (both card and list)
+                        const elements = document.querySelectorAll(`[data-video="${proj.videoUrl}"]`);
+                        let isVisible = false;
+                        elements.forEach(el => {
+                            if (el.style.display !== 'none') isVisible = true;
+                        });
+                        proj.visible = isVisible;
                     });
                 }, 400);
             });
@@ -412,4 +433,129 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prevBtn.addEventListener('click', () => navigateProject(-1));
     nextBtn.addEventListener('click', () => navigateProject(1));
+
+    // 3. Grid vs List Layout Switcher
+    const gridBtn = document.getElementById('view-grid-btn');
+    const listBtn = document.getElementById('view-list-btn');
+    const gridView = document.getElementById('featured-grid') || document.getElementById('portfolio-grid');
+    const listView = document.getElementById('featured-list') || document.getElementById('portfolio-list-view');
+
+    const setViewMode = (mode) => {
+        localStorage.setItem('vortex-view-mode', mode);
+        
+        if (mode === 'list') {
+            if (gridBtn) gridBtn.classList.remove('active');
+            if (listBtn) listBtn.classList.add('active');
+            
+            if (gridView) {
+                gsap.to(gridView, { opacity: 0, duration: 0.3, onComplete: () => {
+                    gridView.style.display = 'none';
+                    if (listView) {
+                        listView.style.display = 'flex';
+                        gsap.fromTo(listView, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+                    }
+                }});
+            }
+        } else {
+            if (gridBtn) gridBtn.classList.add('active');
+            if (listBtn) listBtn.classList.remove('active');
+            
+            if (listView) {
+                gsap.to(listView, { opacity: 0, duration: 0.3, onComplete: () => {
+                    listView.style.display = 'none';
+                    if (gridView) {
+                        gridView.style.display = gridView.id === 'portfolio-grid' ? 'grid' : 'grid';
+                        // Keep grid display consistent
+                        gridView.style.display = '';
+                        gsap.fromTo(gridView, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+                    }
+                }});
+            }
+        }
+
+        // Refresh scroll trigger layouts
+        setTimeout(() => {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
+        }, 350);
+    };
+
+    if (gridBtn && listBtn) {
+        gridBtn.addEventListener('click', () => setViewMode('grid'));
+        listBtn.addEventListener('click', () => setViewMode('list'));
+
+        // Load saved view mode or default to grid
+        const savedViewMode = localStorage.getItem('vortex-view-mode') || 'grid';
+        setViewMode(savedViewMode);
+    }
+
+    // 4. Mouse-Following Hover Reveal Previews (Editorial List Layout)
+    const listItems = document.querySelectorAll('.portfolio-list-item');
+    const hoverMedia = document.getElementById('project-hover-media');
+    
+    if (listItems.length > 0 && hoverMedia && window.innerWidth > 1024) {
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(hoverMedia, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.35,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        });
+        
+        listItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const videoSrc = item.getAttribute('data-video');
+                const video = hoverMedia.querySelector('video');
+                if (video && videoSrc) {
+                    video.src = videoSrc;
+                    video.load();
+                    video.play().catch(() => {});
+                }
+                
+                hoverMedia.style.display = 'block';
+                gsap.to(hoverMedia, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4,
+                    ease: 'power3.out'
+                });
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                gsap.to(hoverMedia, {
+                    opacity: 0,
+                    scale: 0.6,
+                    duration: 0.3,
+                    ease: 'power3.out',
+                    onComplete: () => {
+                        hoverMedia.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // 5. Play Showreel Button Handler
+    const playShowreelBtn = document.getElementById('play-showreel-btn');
+    if (playShowreelBtn) {
+        playShowreelBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const showreelProject = {
+                title: "Vortex Cinematic Showreel",
+                artist: "Vortex Cinema",
+                category: "Studio Showreel",
+                year: "2026",
+                videoUrl: "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0c008779857d1013e20d706bc75553b&profile_id=139&oauth2_token_id=57447761",
+                director: "Sofia Coppola",
+                label: "VORTEX. STUDIO",
+                dp: "Alan Cruz",
+                desc: "The official award-winning production showreel compiling select visual concepts, artist performances, and lighting sequences.",
+                visible: true
+            };
+            openCinemaModal(showreelProject);
+        });
+    }
 });

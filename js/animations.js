@@ -1,50 +1,9 @@
 /* Animation & Motion Orchestrator - VORTEX CINEMA */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Lenis Smooth Scroll (if available)
-    let lenis;
-    if (typeof Lenis !== 'undefined') {
-        lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-            touchMultiplier: 2
-        });
+    // 1. Smooth scroll is now native browser default (Lenis disabled)
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // Sync ScrollTrigger with Lenis
-        if (typeof ScrollTrigger !== 'undefined') {
-            lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000);
-            });
-            gsap.ticker.lagSmoothing(0);
-        }
-    }
-
-    // 2. Sticky Navbar - Hide on Scroll Down / Reveal on Scroll Up
-    let lastScrollY = window.scrollY;
-    const nav = document.querySelector('.header-nav');
-    if (nav) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY <= 50) {
-                nav.classList.remove('nav-hidden');
-            } else if (currentScrollY > lastScrollY && currentScrollY > 150) {
-                // Scrolling down
-                nav.classList.add('nav-hidden');
-            } else {
-                // Scrolling up
-                nav.classList.remove('nav-hidden');
-            }
-            lastScrollY = currentScrollY;
-        });
-    }
+    // 2. Sticky Navbar - Static fixed position (Hide on scroll disabled)
 
     // 3. Scroll Progress Indicator
     const progressBar = document.querySelector('.scroll-progress-bar');
@@ -58,61 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Character-by-Character Text Reveals
+    // 4. Normal Text Fade-in reveals (No character splitting)
     const splitElements = document.querySelectorAll('.text-reveal-char');
     splitElements.forEach(el => {
-        const text = el.innerText.trim();
-        el.innerHTML = '';
-        
-        const words = text.split(' ');
-        words.forEach((word, wordIdx) => {
-            const wordSpan = document.createElement('span');
-            wordSpan.style.display = 'inline-block';
-            wordSpan.style.whiteSpace = 'nowrap';
-            
-            word.split('').forEach(char => {
-                const charSpan = document.createElement('span');
-                charSpan.textContent = char;
-                charSpan.style.display = 'inline-block';
-                charSpan.style.opacity = '0';
-                charSpan.style.transform = 'translate3d(0, 80px, 0) skewY(8deg)';
-                charSpan.className = 'char-span';
-                wordSpan.appendChild(charSpan);
-            });
-            
-            el.appendChild(wordSpan);
-            
-            // Add space between words
-            if (wordIdx < words.length - 1) {
-                const spaceSpan = document.createElement('span');
-                spaceSpan.textContent = '\u00A0';
-                spaceSpan.style.display = 'inline-block';
-                el.appendChild(spaceSpan);
-            }
-        });
-
-        // Trigger reveal on enter viewport
         if (typeof ScrollTrigger !== 'undefined') {
-            gsap.to(el.querySelectorAll('.char-span'), {
-                opacity: 1,
-                y: 0,
-                skewY: 0,
-                duration: 1,
-                stagger: 0.02,
-                ease: 'power4.out',
+            gsap.from(el, {
+                opacity: 0,
+                y: 30,
+                duration: 1.2,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 85%',
                     toggleActions: 'play none none none'
                 }
-            });
-        } else {
-            // Fallback: simple opacity reveal
-            el.querySelectorAll('.char-span').forEach((span, idx) => {
-                setTimeout(() => {
-                    span.style.opacity = '1';
-                    span.style.transform = 'none';
-                }, idx * 20);
             });
         }
     });
@@ -135,32 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 6. Magnetic Buttons
-    const magneticBtns = document.querySelectorAll('.btn-magnetic');
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            // Calculate hover offset relative to center of the button
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            gsap.to(btn, {
-                x: x * 0.35,
-                y: y * 0.35,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: 'elastic.out(1, 0.3)'
-            });
-        });
-    });
+    // 6. Magnetic Buttons (Disabled for standard interaction)
 
     // 7. Statistics Count-up Animation
     const statistics = document.querySelectorAll('.stat-number');

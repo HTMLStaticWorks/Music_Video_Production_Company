@@ -1,6 +1,16 @@
 /* Animations & Interactive Assets - VORTEX CINEMA */
 
 /* --- Custom Cursor --- */
+html.custom-cursor-active,
+html.custom-cursor-active a,
+html.custom-cursor-active button,
+html.custom-cursor-active .control-btn,
+html.custom-cursor-active select,
+html.custom-cursor-active .showcase-card,
+html.custom-cursor-active .editorial-showcase-item {
+    cursor: none !important;
+}
+
 .custom-cursor {
     position: fixed;
     top: 0;

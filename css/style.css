@@ -8,7 +8,7 @@
 
 html {
     direction: var(--direction);
-    scroll-behavior: auto; /* Handled by Lenis smooth scroll */
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -123,14 +123,18 @@ a.accent-text:hover {
     background-color: var(--glass-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    transition: background-color 0.5s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease, background-color 0.5s ease;
 }
 
 .preloaded-ready .header-nav {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, background-color 0.5s ease;
 }
 
-.header-nav.nav-hidden {
+.preloaded-ready .header-nav.nav-hidden {
     transform: translateY(-100%);
 }
 
@@ -563,16 +567,31 @@ a.accent-text:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.9) 100%) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
     z-index: -1;
 }
 [data-theme="light"] .hero-overlay {
-    background: radial-gradient(circle, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.9) 100%) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
 }
 .hero-content {
     z-index: 10;
     width: 90%;
     max-width: 1200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-content h1, .hero-content p {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 8px 32px rgba(0,0,0,1);
+}
+.hero-content p.lead {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 .scroll-indicator {
     position: absolute;
@@ -702,14 +721,14 @@ a.accent-text:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 10, 0.5);
+    background: rgba(10, 10, 10, 0.85);
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 [data-theme="light"] .hero-split-overlay {
-    background: rgba(248, 248, 246, 0.5);
+    background: rgba(248, 248, 246, 0.85);
 }
 .hero-split-title {
     font-family: var(--font-display);
@@ -1410,4 +1429,301 @@ a.accent-text:hover {
         margin-bottom: 2.2rem !important;
     }
 }
+
+/* ==========================================================================
+   CINEMATIC STUDIO VISUAL OVERLAYS & LAYOUTS
+   ========================================================================== */
+
+/* Film Grain overlay - Disabled for performance */
+.film-grain {
+    display: none;
+}
+
+/* Technical Viewfinder Frame overlay */
+.viewfinder-overlay {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+    bottom: var(--spacing-sm);
+    border: 1px solid rgba(var(--accent-rgb), 0.15);
+    pointer-events: none;
+    z-index: 5;
+}
+.viewfinder-overlay::before,
+.viewfinder-overlay::after,
+.viewfinder-corner-tl,
+.viewfinder-corner-tr,
+.viewfinder-corner-bl,
+.viewfinder-corner-br {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent);
+    pointer-events: none;
+}
+.viewfinder-corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.viewfinder-corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.viewfinder-corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.viewfinder-corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* Camera Crosshair Center */
+.viewfinder-crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+}
+.viewfinder-crosshair::before,
+.viewfinder-crosshair::after {
+    content: '';
+    position: absolute;
+    background-color: var(--accent);
+}
+.viewfinder-crosshair::before { top: 14px; left: 0; width: 30px; height: 2px; }
+.viewfinder-crosshair::after { top: 0; left: 14px; width: 2px; height: 30px; }
+
+/* Sound Visualizer Button styling in header */
+.sound-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.sound-toggle-btn:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+.sound-bar {
+    width: 2px;
+    height: 12px;
+    background-color: var(--text);
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+.sound-toggle-btn:hover .sound-bar {
+    background-color: var(--accent);
+}
+.sound-toggle-btn.playing .sound-bar:nth-child(1) { animation: sound-bounce 0.8s infinite alternate ease-in-out; }
+.sound-toggle-btn.playing .sound-bar:nth-child(2) { animation: sound-bounce 0.5s infinite alternate ease-in-out 0.1s; }
+.sound-toggle-btn.playing .sound-bar:nth-child(3) { animation: sound-bounce 0.7s infinite alternate ease-in-out 0.2s; }
+.sound-toggle-btn.playing .sound-bar:nth-child(4) { animation: sound-bounce 0.6s infinite alternate ease-in-out 0.15s; }
+
+@keyframes sound-bounce {
+    0% { height: 4px; }
+    100% { height: 16px; }
+}
+
+/* Layout switch grid vs list views */
+.view-mode-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-md);
+}
+.view-mode-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.view-mode-btn.active, .view-mode-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.portfolio-list-view {
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    margin-top: var(--spacing-sm);
+}
+.portfolio-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.4s ease;
+}
+.portfolio-list-item:hover {
+    border-color: var(--accent);
+}
+.portfolio-list-item .proj-num {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--accent);
+    width: 60px;
+}
+.portfolio-list-item .proj-title-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.portfolio-list-item h3 {
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    margin: 0;
+    font-weight: 800;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+.portfolio-list-item:hover h3 {
+    transform: translateX(10px);
+    color: var(--accent);
+}
+.portfolio-list-item .proj-meta-group {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Blueprint Rig Specs card style */
+.blueprint-card {
+    border: 1px dashed var(--accent);
+    background-color: rgba(var(--bg-card-rgb), 0.5);
+    padding: var(--spacing-md);
+    position: relative;
+    margin-bottom: var(--spacing-md);
+}
+.blueprint-card::before {
+    content: 'TECHNICAL SPEC';
+    position: absolute;
+    top: -9px;
+    left: 15px;
+    background-color: var(--bg);
+    padding: 0 8px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 600;
+}
+.blueprint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+}
+.blueprint-spec-item {
+    border-left: 1px solid rgba(var(--accent-rgb), 0.3);
+    padding-left: 10px;
+}
+.blueprint-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.8;
+}
+.blueprint-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Viewfinder slate-style coordinate labels */
+.section-coord {
+    position: absolute;
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: rgba(var(--accent-rgb), 0.3);
+    letter-spacing: 0.1em;
+}
+.coord-top-left { top: 15px; left: 15px; }
+.coord-bottom-right { bottom: 15px; right: 15px; }
+
+/* Interactive Planner Styling */
+.consultation-planner {
+    border: 1px solid var(--border);
+    padding: var(--spacing-md);
+    background-color: var(--bg-card);
+}
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+.checkbox-card {
+    border: 1px solid var(--border);
+    padding: 12px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+}
+.checkbox-card:hover {
+    border-color: var(--accent);
+    background-color: rgba(var(--accent-rgb), 0.03);
+}
+.checkbox-card.selected {
+    border-color: var(--accent);
+    background-color: rgba(var(--accent-rgb), 0.08);
+}
+.checkbox-card input[type="checkbox"] {
+    display: none;
+}
+.checkbox-card-indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--text-muted);
+    display: inline-block;
+    position: relative;
+}
+.checkbox-card.selected .checkbox-card-indicator {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+.checkbox-card.selected .checkbox-card-indicator::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Audio visualizer elements on mobile nav */
+.mobile-menu-controls .sound-toggle-btn-mob {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    margin-right: 10px;
+}
+
 

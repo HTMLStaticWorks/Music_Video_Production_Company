@@ -18,6 +18,9 @@
 </head>
 <body>
 
+    <!-- Film Grain Background Overlay -->
+    <div class="film-grain"></div>
+
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
         <div class="scroll-progress-bar"></div>
@@ -77,12 +80,24 @@
 
         <!-- Filters & Grid Section -->
         <section class="container" style="padding-top: 0; padding-bottom: var(--spacing-xl);">
-            <!-- Filter Bar -->
-            <div class="portfolio-filters">
-                <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
-                <button class="portfolio-filter-btn" data-filter="music-videos">Music Videos</button>
-                <button class="portfolio-filter-btn" data-filter="epk">EPK Documents</button>
-                <button class="portfolio-filter-btn" data-filter="live-sessions">Live Sessions</button>
+            <!-- View Selector Row -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md); flex-wrap: wrap; gap: var(--spacing-sm);">
+                <!-- Filter Bar -->
+                <div class="portfolio-filters" style="margin-bottom: 0;">
+                    <button class="portfolio-filter-btn active" data-filter="all">All Projects</button>
+                    <button class="portfolio-filter-btn" data-filter="music-videos">Music Videos</button>
+                    <button class="portfolio-filter-btn" data-filter="epk">EPK Documents</button>
+                    <button class="portfolio-filter-btn" data-filter="live-sessions">Live Sessions</button>
+                </div>
+                <!-- View Mode Selector -->
+                <div class="view-mode-selector">
+                    <button class="view-mode-btn active" id="view-grid-btn" aria-label="Switch to Grid View">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-mode-btn" id="view-list-btn" aria-label="Switch to List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Portfolio Grid -->
@@ -224,6 +239,131 @@
                 </div>
 
             </div>
+
+            <!-- List View (Hidden by default) -->
+            <div class="portfolio-list-view" id="portfolio-list-view">
+                <!-- List Item 1 -->
+                <div class="portfolio-list-item view-target" data-category="music-videos" data-artist="AURA" data-year="2026" data-director="Marcus Vance" data-label="Sony Music" data-dp="Alan Cruz" data-desc="An editorial visual concept tracking neon cityscapes and raw vocal performances." data-video="https://player.vimeo.com/external/435674703.sd.mp4?s=7fdfdb1d26e1081518f8e2fa516086f059a4be29&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">01</span>
+                    <div class="proj-title-group">
+                        <h3>Neon Shadows</h3>
+                        <div class="proj-meta-group">
+                            <span>AURA</span>
+                            <span>Music Video</span>
+                            <span>Sony Music</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 2 -->
+                <div class="portfolio-list-item view-target" data-category="live-sessions" data-artist="Kaelen" data-year="2026" data-director="Sofia Coppola" data-label="Atlantic Records" data-dp="Diana Prince" data-desc="Raw synthesizer-driven studio performance captured live in London." data-video="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">02</span>
+                    <div class="proj-title-group">
+                        <h3>Analog Echoes</h3>
+                        <div class="proj-meta-group">
+                            <span>Kaelen</span>
+                            <span>Live Session</span>
+                            <span>Atlantic Records</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 3 -->
+                <div class="portfolio-list-item view-target" data-category="epk" data-artist="Vortex Collective" data-year="2025" data-director="Arthur Dent" data-label="Independent" data-dp="Tricia McMillan" data-desc="A beautiful editorial mini-doc behind the creation of their album." data-video="https://player.vimeo.com/external/554170366.sd.mp4?s=6c2ef6dc266a2468305f64ee4a46a6f67115ff6c&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">03</span>
+                    <div class="proj-title-group">
+                        <h3>Album Launch EPK</h3>
+                        <div class="proj-meta-group">
+                            <span>Vortex Collective</span>
+                            <span>EPK Document</span>
+                            <span>Independent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 4 -->
+                <div class="portfolio-list-item view-target" data-category="music-videos" data-artist="Sasha Grey" data-year="2026" data-director="J.J. Abrams" data-label="Universal Music" data-dp="Larry Smith" data-desc="An award winning cinematic space-age concept video exploring light and lasers." data-video="https://player.vimeo.com/external/342898305.sd.mp4?s=34a49c2f6d90a775199672691f6bb9992f8a8ad1&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">04</span>
+                    <div class="proj-title-group">
+                        <h3>Starlight Glow</h3>
+                        <div class="proj-meta-group">
+                            <span>Sasha Grey</span>
+                            <span>Music Video</span>
+                            <span>Universal Music</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 5 -->
+                <div class="portfolio-list-item view-target" data-category="live-sessions" data-artist="Lucid Dreams" data-year="2025" data-director="Wes Anderson" data-label="Warner Records" data-dp="Robert Yeoman" data-desc="A whimsical, symmetrical stage production live session displaying pastel lighting presets." data-video="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0c008779857d1013e20d706bc75553b&profile_id=139&oauth2_token_id=57447761">
+                    <span class="proj-num">05</span>
+                    <div class="proj-title-group">
+                        <h3>Sonic Waves</h3>
+                        <div class="proj-meta-group">
+                            <span>Lucid Dreams</span>
+                            <span>Live Session</span>
+                            <span>Warner Records</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 6 -->
+                <div class="portfolio-list-item view-target" data-category="epk" data-artist="Velvet Sound" data-year="2026" data-director="Denis Villeneuve" data-label="Def Jam Records" data-dp="Roger Deakins" data-desc="An artistic EPK profiling the studio environment and song composing structures." data-video="https://player.vimeo.com/external/517616654.sd.mp4?s=7504f757e4e1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">06</span>
+                    <div class="proj-title-group">
+                        <h3>Echo Chamber</h3>
+                        <div class="proj-meta-group">
+                            <span>Velvet Sound</span>
+                            <span>EPK Document</span>
+                            <span>Def Jam Records</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 7 -->
+                <div class="portfolio-list-item view-target" data-category="music-videos" data-artist="Luminous Wave" data-year="2026" data-director="Arthur Dent" data-label="Sony Music" data-dp="Alan Cruz" data-desc="High-impact visuals tracking programmable stage light arrays." data-video="https://player.vimeo.com/external/403816667.sd.mp4?s=77ba1a067e2a9e5b206cd2df36fb9d2a0&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">07</span>
+                    <div class="proj-title-group">
+                        <h3>Stage Sync</h3>
+                        <div class="proj-meta-group">
+                            <span>Luminous Wave</span>
+                            <span>Music Video</span>
+                            <span>Sony Music</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 8 -->
+                <div class="portfolio-list-item view-target" data-category="live-sessions" data-artist="Deep Resonance" data-year="2026" data-director="Marcus Vance" data-label="Atlantic Records" data-dp="Diana Prince" data-desc="A live performance capture documenting real-time modular synthesizer tweaks." data-video="https://player.vimeo.com/external/434045526.sd.mp4?s=6a2d1d266a2468305f64ee4a46a6f67115ff6c&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">08</span>
+                    <div class="proj-title-group">
+                        <h3>Analog Sync</h3>
+                        <div class="proj-meta-group">
+                            <span>Deep Resonance</span>
+                            <span>Live Session</span>
+                            <span>Atlantic Records</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List Item 9 -->
+                <div class="portfolio-list-item view-target" data-category="epk" data-artist="Behind the Grid" data-year="2025" data-director="Sofia Coppola" data-label="Independent" data-dp="Tricia McMillan" data-desc="A behind-the-scenes film detailing our soundstage set configurations." data-video="https://player.vimeo.com/external/409204043.sd.mp4?s=79fa3b42f6c04f98127ef6476b7dbb3cc61d6bc0&profile_id=165&oauth2_token_id=57447761">
+                    <span class="proj-num">09</span>
+                    <div class="proj-title-group">
+                        <h3>Film Optics</h3>
+                        <div class="proj-meta-group">
+                            <span>Behind the Grid</span>
+                            <span>EPK Document</span>
+                            <span>Independent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Video Follower -->
+            <div class="project-hover-media" id="project-hover-media" style="position: fixed; width: 380px; height: 220px; pointer-events: none; z-index: 100; opacity: 0; transform: scale(0.6) translate(-50%, -50%); transform-origin: center center; overflow: hidden; border: 1px solid var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.6); display: none;">
+                <video loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+            </div>
         </section>
 
     </main>
@@ -282,14 +422,13 @@
     <!-- GSAP Smooth Scroll Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <!-- Custom Orchestration Engines -->
     <script src="js/theme.js"></script>
     <script src="js/rtl.js"></script>
-    <script src="js/cursor.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/audio.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
 </body>

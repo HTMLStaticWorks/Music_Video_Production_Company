@@ -20,6 +20,8 @@
 </head>
 
 <body>
+    <!-- Film Grain Background Overlay -->
+    <div class="film-grain"></div>
 
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress-container">
@@ -112,7 +114,63 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" id="contact-artist" required>
-                                <label for="contact-artist">Artist / Label *</label>
+                                <label for="contact-artist">Artist Name / Label Affiliate *</label>
+                            </div>
+                        </div>
+
+                        <!-- Role Selector -->
+                        <div class="form-group">
+                            <select id="contact-role" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="artist">Artist / Band Member</option>
+                                <option value="manager">Artist Manager</option>
+                                <option value="label">Label Representative / A&R</option>
+                                <option value="agency">Creative Director / Agency</option>
+                                <option value="other">Independent Producer / Other</option>
+                            </select>
+                            <label for="contact-role">Your Role *</label>
+                        </div>
+
+                        <!-- Audio Track Reference Link -->
+                        <div class="form-group">
+                            <input type="url" id="contact-track-link">
+                            <label for="contact-track-link">Audio Track Reference (Spotify, SoundCloud, Dropbox, or Drive link)</label>
+                        </div>
+
+                        <!-- Select Services Required Checkbox Grid -->
+                        <div style="margin-bottom: var(--spacing-md); text-align: left;">
+                            <span class="accent-text" style="display: block; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px;">Target Production Services Required *</span>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-card" id="srv-treatment">
+                                    <input type="checkbox" name="services" value="treatment">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>Script Treatment</span>
+                                </label>
+                                <label class="checkbox-card" id="srv-location">
+                                    <input type="checkbox" name="services" value="location">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>Location Scouting</span>
+                                </label>
+                                <label class="checkbox-card" id="srv-cast">
+                                    <input type="checkbox" name="services" value="cast">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>Casting & Styling</span>
+                                </label>
+                                <label class="checkbox-card" id="srv-cinemato">
+                                    <input type="checkbox" name="services" value="cinemato">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>High-Speed Rigging</span>
+                                </label>
+                                <label class="checkbox-card" id="srv-color">
+                                    <input type="checkbox" name="services" value="color">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>DaVinci Color Grade</span>
+                                </label>
+                                <label class="checkbox-card" id="srv-vfx">
+                                    <input type="checkbox" name="services" value="vfx">
+                                    <span class="checkbox-card-indicator"></span>
+                                    <span>CGI & Visual Effects</span>
+                                </label>
                             </div>
                         </div>
 
@@ -143,18 +201,18 @@
                         <!-- Timeline Row -->
                         <div class="form-group">
                             <input type="text" id="contact-timeline" required>
-                            <label for="contact-timeline">Target Timeline (e.g. August 2026) *</label>
+                            <label for="contact-timeline">Target Production Timeline (e.g. August 2026) *</label>
                         </div>
 
                         <!-- Message Row -->
                         <div class="form-group">
                             <textarea id="contact-message" maxlength="1000" rows="6" required></textarea>
-                            <label for="contact-message">Synopsis / Notes *</label>
+                            <label for="contact-message">Treatment Synopsis / Project Notes *</label>
                             <div class="char-counter" id="char-counter">0 / 1000</div>
                         </div>
 
                         <button type="submit" class="btn-primary"
-                            style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-md); width: 100%; text-align: center;">Submit Proposal</button>
+                            style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-md); width: 100%; text-align: center;">Submit Consult Planner</button>
                     </form>
 
                     <!-- Success State draw block -->
@@ -316,14 +374,13 @@
     <!-- GSAP Smooth Scroll Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <!-- Custom Orchestration Engines -->
     <script src="js/theme.js"></script>
     <script src="js/rtl.js"></script>
-    <script src="js/cursor.js"></script>
     <script src="js/preloader.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/audio.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/form.js"></script>
     <script src="js/main.js"></script>

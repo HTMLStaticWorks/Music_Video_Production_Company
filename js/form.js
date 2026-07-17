@@ -49,6 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 4. Selectable Checkbox Cards
+    const checkboxCards = bookingForm.querySelectorAll('.checkbox-card');
+    checkboxCards.forEach(card => {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        card.addEventListener('click', (e) => {
+            // Prevent event doubling if clicking directly on input
+            if (e.target.tagName === 'INPUT') return;
+            
+            e.preventDefault();
+            const isChecked = checkbox.checked;
+            checkbox.checked = !isChecked;
+            
+            if (checkbox.checked) {
+                card.classList.add('selected');
+            } else {
+                card.classList.remove('selected');
+            }
+        });
+    });
+
     // 3. Validation Handler
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
