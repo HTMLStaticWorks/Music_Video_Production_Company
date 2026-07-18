@@ -71,11 +71,36 @@
 
     <main>
         
-        <!-- Showcase Introduction -->
-        <section class="container" style="padding-bottom: var(--spacing-sm); padding-top: calc(var(--nav-height) + var(--spacing-lg));">
-            <span class="accent-text" style="text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600;">Creative Catalog</span>
-            <h1 class="display-medium" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Studio Archive</h1>
-            <p class="lead">A curated selection of our finest visual productions. Filter by production category and click any card to inspect full creative credits, directors, and view cinematic playbacks.</p>
+        <!-- Portfolio Hero Section -->
+        <section class="portfolio-hero">
+            <div class="grid-overlay-bg"></div>
+            <div class="container portfolio-hero-container">
+                <div class="portfolio-hero-text reveal-fade">
+                    <span class="badge-accent"><i class="fa-solid fa-folder-open"></i> Creative Catalog</span>
+                    <h1 class="display-medium" style="margin-top: 10px; margin-bottom: var(--spacing-sm);">Studio Archive</h1>
+                    <p class="lead">A curated selection of our finest visual productions. Filter by production category and click any card to inspect full creative credits, directors, and view cinematic playbacks.</p>
+                </div>
+                <div class="portfolio-hero-visual reveal-fade">
+                    <div class="audio-waveform-container">
+                        <div class="waveform-bar bar-1"></div>
+                        <div class="waveform-bar bar-2"></div>
+                        <div class="waveform-bar bar-3"></div>
+                        <div class="waveform-bar bar-4"></div>
+                        <div class="waveform-bar bar-5"></div>
+                        <div class="waveform-bar bar-6"></div>
+                        <div class="waveform-bar bar-7"></div>
+                        <div class="waveform-bar bar-8"></div>
+                        <div class="waveform-bar bar-9"></div>
+                        <div class="waveform-bar bar-10"></div>
+                        <div class="waveform-bar bar-11"></div>
+                        <div class="waveform-bar bar-12"></div>
+                    </div>
+                    <div class="timecode-display">
+                        <span class="tc-label">ARCHIVE STATUS: ACTIVE</span>
+                        <span class="tc-value" id="live-timecode">00:00:00:00</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Filters & Grid Section -->
@@ -593,5 +618,23 @@
     <script src="js/audio.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
+    <!-- Dynamic Timecode Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timecodeEl = document.getElementById('live-timecode');
+            if (timecodeEl) {
+                let frames = 0;
+                setInterval(() => {
+                    const now = new Date();
+                    const hrs = String(now.getHours()).padStart(2, '0');
+                    const mins = String(now.getMinutes()).padStart(2, '0');
+                    const secs = String(now.getSeconds()).padStart(2, '0');
+                    const fVal = String(frames).padStart(2, '0');
+                    timecodeEl.textContent = `${hrs}:${mins}:${secs}:${fVal}`;
+                    frames = (frames + 1) % 24;
+                }, 41.67);
+            }
+        });
+    </script>
 </body>
 </html>
