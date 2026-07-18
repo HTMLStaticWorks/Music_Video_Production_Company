@@ -1855,7 +1855,7 @@ a.accent-text:hover {
     position: relative;
     padding-top: calc(var(--nav-height) + var(--spacing-xl));
     padding-bottom: var(--spacing-lg);
-    background: radial-gradient(circle at 10% 20%, rgba(10, 10, 15, 0.9) 0%, rgba(5, 5, 8, 1) 90%);
+    background: radial-gradient(circle at 10% 20%, rgba(var(--bg-card-rgb), 0.9) 0%, rgba(var(--bg-rgb), 1) 90%);
     overflow: hidden;
 }
 .about-hero::after {
@@ -1942,7 +1942,7 @@ a.accent-text:hover {
     position: relative;
     padding-top: calc(var(--nav-height) + var(--spacing-xl));
     padding-bottom: var(--spacing-md);
-    background: #060608;
+    background: var(--bg);
     overflow: hidden;
 }
 .grid-overlay-bg {
@@ -1950,8 +1950,8 @@ a.accent-text:hover {
     top: 0; left: 0; right: 0; bottom: 0;
     background-size: 40px 40px;
     background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(to right, var(--border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border) 1px, transparent 1px);
     z-index: 1;
     pointer-events: none;
 }
@@ -1976,7 +1976,7 @@ a.accent-text:hover {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    background: rgba(15, 15, 22, 0.6);
+    background: rgba(var(--bg-card-rgb), 0.6);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 30px;
@@ -2036,7 +2036,7 @@ a.accent-text:hover {
     position: relative;
     padding-top: calc(var(--nav-height) + var(--spacing-xl));
     padding-bottom: var(--spacing-lg);
-    background: #09090b;
+    background: var(--bg);
     overflow: hidden;
 }
 .mesh-gradient-bg {
@@ -2068,7 +2068,7 @@ a.accent-text:hover {
     letter-spacing: -0.02em;
 }
 .contact-hero-pipeline {
-    background: rgba(15, 15, 22, 0.5);
+    background: rgba(var(--bg-card-rgb), 0.5);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 30px;
@@ -2100,7 +2100,7 @@ a.accent-text:hover {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #121216;
+    background: var(--bg);
     border: 2px solid var(--border);
     display: flex;
     align-items: center;

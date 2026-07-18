@@ -294,17 +294,18 @@ html.custom-cursor-active .editorial-showcase-item {
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
 }
 
 .card-media-wrapper video {
     opacity: 0;
-    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
 }
 
 .showcase-card:hover .card-media-wrapper img {
     transform: scale(1.05);
-    opacity: 0.2;
+    opacity: 1;
 }
 
 .showcase-card:hover .card-media-wrapper video {
