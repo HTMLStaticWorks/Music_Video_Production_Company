@@ -365,7 +365,8 @@ a.accent-text:hover {
 .footer {
     background-color: var(--bg-card);
     border-top: 1px solid var(--border);
-    padding: var(--spacing-xl) 0 var(--spacing-md);
+    padding: var(--spacing-lg) 0 0 0;
+    margin-bottom: 0;
     transition: background-color 0.5s ease;
 }
 
@@ -373,7 +374,7 @@ a.accent-text:hover {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 2fr;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .footer-logo-side {
@@ -463,6 +464,7 @@ a.accent-text:hover {
 .footer-bottom {
     border-top: 1px solid var(--border);
     padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1249,14 +1251,14 @@ a.accent-text:hover {
 .auth-container {
     max-width: 500px;
     margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
     width: 100%;
     background-color: var(--bg-card);
     border: 1px solid var(--border);
 }
 @media (max-width: 480px) {
     .auth-container {
-        padding: var(--spacing-lg) 1.25rem;
+        padding: var(--spacing-md) 1.25rem;
     }
 }
 .auth-header {
